@@ -16,6 +16,7 @@ struct ExpandedModel {
 }
 
 class organizationModuleVC: UIViewController, WKNavigationDelegate {
+    @IBOutlet weak var lblTest: UILabel!
     var cellHeights: [IndexPath: CGFloat] = [:]
     var webViewDummyArry = [ExpandedModel]()
     
@@ -26,9 +27,10 @@ class organizationModuleVC: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
         self.registerXibs()
         self.getDetailFromServer()
-        
+
         
     }
     
@@ -140,22 +142,26 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("web view loaded")
         guard let indexPath = indexPathForWebView(webView) else { return }
+        if !self.webViewDummyArry[indexPath.section].isExpanded{
+            // Calculate the height of the cell based on the content size of the WKWebView
+            webView.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
+                if complete != nil {
+                    webView.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
+                        print(height as! CGFloat)
+                        self.cellHeights[indexPath] = (height as? CGFloat ?? 0.0) + 40.0
+                        print(self.cellHeights)
+                        print("")
+                        
+                        // Reload the corresponding cell to update its height
+                        
+                        
+                    })
+                }
+                
+            })
+        }
         
-        // Calculate the height of the cell based on the content size of the WKWebView
-        webView.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
-            if complete != nil {
-                webView.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
-                    print(height as! CGFloat)
-                    self.cellHeights[indexPath] = (height as? CGFloat ?? 0.0) + 40.0
-                    print(self.cellHeights)
-                    
-                    // Reload the corresponding cell to update its height
-                    
-                    
-                })
-            }
-            
-        })
+        
         
         
         

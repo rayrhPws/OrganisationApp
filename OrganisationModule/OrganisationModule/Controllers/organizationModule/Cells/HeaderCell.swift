@@ -14,6 +14,8 @@ class HeaderCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.lblTitle.adjustsFontForContentSizeCategory = true
+        lblTitle.font = UIFont.preferredFont(forTextStyle: .body)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
