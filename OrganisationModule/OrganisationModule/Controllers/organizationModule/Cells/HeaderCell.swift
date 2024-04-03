@@ -15,7 +15,10 @@ class HeaderCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.lblTitle.adjustsFontForContentSizeCategory = true
-        lblTitle.font = UIFont.preferredFont(forTextStyle: .body)
+        let bodyFont = UIFont.preferredFont(forTextStyle: .body)
+        let boldBodyFont = UIFont.boldSystemFont(ofSize: bodyFont.pointSize)
+        lblTitle.font = boldBodyFont
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

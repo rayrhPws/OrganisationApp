@@ -34,7 +34,7 @@ struct SingleItem: Codable {
 //    let circumstances: [Circumstance]?
 //    let contactPerson: [ContactPerson]?
 //    let organisation: [Organisation]?
-//    let formular, process: [Formular]?
+    let formulare, prozesse: [Formular]?
 }
 
 // MARK: - Circumstance
@@ -56,7 +56,7 @@ struct ContactPerson: Codable {
 
 // MARK: - Formular
 struct Formular: Codable {
-    let title, url: String?
+    let bezeichnung, url: String?
 }
 
 // MARK: - Organisation

@@ -25,12 +25,12 @@ class NetworkManager : NSObject {
         
         
         
-        let url = "https://www.welzheim.de/app-connection-stadt/app-connection-buergerserviceportal?action=getSBWLeistungenDetails&baseColor=006B23&baseFontSize=14&singleItemId=6005267"
+        let url = Constants.shared.baseUrl
         
         let performRequest: () -> () = {
             
             
-            print("HEADERS: \(headers)")
+//            print("HEADERS: \(headers)")
             
             let request = AF.request(url,
                                      method: method,

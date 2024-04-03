@@ -17,8 +17,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9io-Yi-6IJ">
-                        <rect key="frame" x="20" y="4" width="250" height="36"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <rect key="frame" x="20" y="8" width="250" height="28"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                         <color key="textColor" red="0.61176470588235299" green="0.15294117647058825" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -32,12 +32,12 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="9io-Yi-6IJ" secondAttribute="bottom" constant="4" id="5n6-39-AcZ"/>
+                    <constraint firstAttribute="bottom" secondItem="9io-Yi-6IJ" secondAttribute="bottom" constant="8" id="5n6-39-AcZ"/>
                     <constraint firstItem="bbn-sK-jvP" firstAttribute="leading" secondItem="9io-Yi-6IJ" secondAttribute="trailing" constant="12" id="7lh-Nd-ViN"/>
                     <constraint firstItem="9io-Yi-6IJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="iMQ-9U-apW"/>
                     <constraint firstItem="bbn-sK-jvP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pIN-uS-UQh"/>
                     <constraint firstAttribute="trailing" secondItem="bbn-sK-jvP" secondAttribute="trailing" constant="20" id="rsb-mB-Xju"/>
-                    <constraint firstItem="9io-Yi-6IJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="vdO-j3-NGf"/>
+                    <constraint firstItem="9io-Yi-6IJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="vdO-j3-NGf"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
