@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 class WebViewTblCell: UITableViewCell {
-    
+    var identifier = "WebViewTblCell"
     @IBOutlet weak var viewWK: WKWebView!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     override func awakeFromNib() {
@@ -17,6 +17,10 @@ class WebViewTblCell: UITableViewCell {
         // Initialization code
         viewWK.scrollView.isScrollEnabled = false
 //        self.viewWK.navigationDelegate = self
+        
+        
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,5 +28,8 @@ class WebViewTblCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+   
+    
     
 }

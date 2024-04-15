@@ -15,7 +15,6 @@
 		801BB62F2BA89D6E005226B4 /* OrganisationModule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 801BB62D2BA89D6E005226B4 /* OrganisationModule.xcdatamodeld */; };
 		801BB6312BA89D6F005226B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801BB6302BA89D6F005226B4 /* Assets.xcassets */; };
 		801BB6342BA89D6F005226B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801BB6322BA89D6F005226B4 /* LaunchScreen.storyboard */; };
-		801BB63D2BA89E41005226B4 /* initialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BB63C2BA89E41005226B4 /* initialVC.swift */; };
 		801BB63F2BA89E50005226B4 /* organizationModuleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BB63E2BA89E50005226B4 /* organizationModuleVC.swift */; };
 		801BB6412BA89FCA005226B4 /* localJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 801BB6402BA89FCA005226B4 /* localJson.json */; };
 		802824CB2BBC67AC00CECC1C /* DynamicHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802824C92BBC67AC00CECC1C /* DynamicHeightCell.swift */; };
@@ -79,7 +78,6 @@
 		801BB6302BA89D6F005226B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		801BB6332BA89D6F005226B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		801BB6352BA89D6F005226B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		801BB63C2BA89E41005226B4 /* initialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initialVC.swift; sourceTree = "<group>"; };
 		801BB63E2BA89E50005226B4 /* organizationModuleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = organizationModuleVC.swift; sourceTree = "<group>"; };
 		801BB6402BA89FCA005226B4 /* localJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = localJson.json; sourceTree = "<group>"; };
 		802824C92BBC67AC00CECC1C /* DynamicHeightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCell.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				80E67CC02BACA55500B5BC9D /* organizationModule */,
-				801BB63C2BA89E41005226B4 /* initialVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -466,7 +463,6 @@
 				80D6DACE2BA8C2D300FC85DF /* UIViewController.swift in Sources */,
 				80D6DAE82BA8C2D300FC85DF /* GradientLabel.swift in Sources */,
 				80D6DAEA2BA8C2D300FC85DF /* GradientTextColor.swift in Sources */,
-				801BB63D2BA89E41005226B4 /* initialVC.swift in Sources */,
 				80A66ED52BAB6BA900CFA51E /* Helper.swift in Sources */,
 				80D6DAE72BA8C2D300FC85DF /* IBDesignableExtensions.swift in Sources */,
 				80A0FBC92BB5734C00A41CE1 /* HeaderCell.swift in Sources */,

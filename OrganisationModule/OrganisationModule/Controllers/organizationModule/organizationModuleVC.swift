@@ -20,17 +20,11 @@ class organizationModuleVC: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
-        
         self.registerXibs()
         self.getDetailFromServer()
 
-        
     }
-    
-    
-    
     
     func getDetailFromServer(){
         network.request("",
@@ -43,7 +37,6 @@ class organizationModuleVC: UIViewController, WKNavigationDelegate {
                 if response.singleItem?.preamble != nil{
                     self.detailArray.append(ExpandedModel(title: response.singleItem?.bezeichnung ?? "", htmlStr: response.singleItem?.preamble ?? ""))
                 }
-                
                 if response.singleItem?.formulare != nil && response.singleItem?.formulare?.count ?? 0 > 0{
                     var expandedModelArr = [ExpandedModel]()
                     if let formularArr = response.singleItem?.formulare{
@@ -52,7 +45,7 @@ class organizationModuleVC: UIViewController, WKNavigationDelegate {
                         }
                     }
                     
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.formularTitle.rawValue, htmlStr: "", nestedArray: expandedModelArr))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.formular.rawValue, htmlStr: "", nestedArray: expandedModelArr))
                 }
                 
                 if response.singleItem?.prozesse != nil && response.singleItem?.prozesse?.count ?? 0 > 0{
@@ -63,46 +56,46 @@ class organizationModuleVC: UIViewController, WKNavigationDelegate {
                         }
                     }
                     
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.processTitle.rawValue, htmlStr: "", nestedArray: expandedModelArr))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.process.rawValue, htmlStr: "", nestedArray: expandedModelArr))
                     
                 }
                 
                 self.addSeparatorIfNeeded()
                 
                 if response.singleItem?.voraussetzungen != nil{
-                    self.detailArray.append(ExpandedModel(title: "title 1", htmlStr: response.singleItem?.voraussetzungen ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title1.rawValue, htmlStr: response.singleItem?.voraussetzungen ?? ""))
                 }
                 
                 if response.singleItem?.verfahrensablauf != nil{
-                    self.detailArray.append(ExpandedModel(title: "title3", htmlStr: response.singleItem?.verfahrensablauf ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title2.rawValue, htmlStr: response.singleItem?.verfahrensablauf ?? ""))
                 }
                 if response.singleItem?.fristen != nil{
-                    self.detailArray.append(ExpandedModel(title: "title4", htmlStr: response.singleItem?.fristen ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title3.rawValue, htmlStr: response.singleItem?.fristen ?? ""))
                 }
                 if response.singleItem?.unterlagen != nil{
-                    self.detailArray.append(ExpandedModel(title: "title5", htmlStr: response.singleItem?.unterlagen ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title4.rawValue, htmlStr: response.singleItem?.unterlagen ?? ""))
                 }
                 if response.singleItem?.kosten != nil{
-                    self.detailArray.append(ExpandedModel(title: "title6", htmlStr: response.singleItem?.kosten ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title5.rawValue, htmlStr: response.singleItem?.kosten ?? ""))
                 }
                 if response.singleItem?.sonstiges != nil{
-                    self.detailArray.append(ExpandedModel(title: "title7", htmlStr: response.singleItem?.sonstiges ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title6.rawValue, htmlStr: response.singleItem?.sonstiges ?? ""))
                 }
                 if response.singleItem?.rechtsgrundlage != nil{
-                    self.detailArray.append(ExpandedModel(title: "title8", htmlStr: response.singleItem?.rechtsgrundlage ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title7.rawValue, htmlStr: response.singleItem?.rechtsgrundlage ?? ""))
                 }
                 if response.singleItem?.bearbeitungsdauer != nil{
-                    self.detailArray.append(ExpandedModel(title: "title9", htmlStr: response.singleItem?.bearbeitungsdauer ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title8.rawValue, htmlStr: response.singleItem?.bearbeitungsdauer ?? ""))
                 }
                 if response.singleItem?.zustaendigkeit != nil{
-                    self.detailArray.append(ExpandedModel(title: "title10", htmlStr: response.singleItem?.zustaendigkeit ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title9.rawValue, htmlStr: response.singleItem?.zustaendigkeit ?? ""))
                 }
                 if response.singleItem?.vertiefende_informationen != nil{
-                    self.detailArray.append(ExpandedModel(title: "title11", htmlStr: response.singleItem?.vertiefende_informationen ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title10.rawValue, htmlStr: response.singleItem?.vertiefende_informationen ?? ""))
                 }
                 
                 if response.singleItem?.freigabevermerk != nil{
-                    self.detailArray.append(ExpandedModel(title: "title12", htmlStr: response.singleItem?.freigabevermerk ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title11.rawValue, htmlStr: response.singleItem?.freigabevermerk ?? ""))
                 }
                 
                 
@@ -120,7 +113,7 @@ class organizationModuleVC: UIViewController, WKNavigationDelegate {
     func addSeparatorIfNeeded(){
         let contains = self.detailArray.contains { $0.htmlStr == "" }
         if contains{
-            self.detailArray.append(ExpandedModel(title: "separator", htmlStr: ""))
+            self.detailArray.append(ExpandedModel(title: TitleConfig.separtor.rawValue, htmlStr: ""))
         }
     }
     
@@ -128,21 +121,17 @@ class organizationModuleVC: UIViewController, WKNavigationDelegate {
         self.tblView.delegate = self
         self.tblView.dataSource = self
         
-        tblView.register(UINib.init(nibName: "WebViewTblCell", bundle: nil), forCellReuseIdentifier: "WebViewTblCell")
-        tblView.register(UINib.init(nibName: "DynamicHeightCell", bundle: nil), forCellReuseIdentifier: "DynamicHeightCell")
-        
-        tblView.register(UINib.init(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
-        tblView.register(UINib.init(nibName: "SeparatorTblCell", bundle: nil), forCellReuseIdentifier: "SeparatorTblCell")
+        tblView.register(WebViewTblCell.nib(), forCellReuseIdentifier: WebViewTblCell.identifier)
+        tblView.register(DynamicHeightCell.nib(), forCellReuseIdentifier: DynamicHeightCell.identifier)
+        tblView.register(HeaderCell.nib(), forCellReuseIdentifier: HeaderCell.identifier)
+        tblView.register(SeparatorTblCell.nib(), forCellReuseIdentifier: SeparatorTblCell.identifier)
         
         tblView.estimatedSectionHeaderHeight = 30
         tblView.sectionHeaderHeight = UITableView.automaticDimension
         
-
         self.tblView.layoutIfNeeded()
         
     }
-    
-    
     
 }
 extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
@@ -160,21 +149,19 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if self.detailArray[indexPath.section].htmlStr.elementsEqual(""){
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DynamicHeightCell") as! DynamicHeightCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: DynamicHeightCell.identifier) as! DynamicHeightCell
             cell.lblTitle.text = self.detailArray[indexPath.section].nestedArray?[indexPath.row].title
             
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WebViewTblCell") as! WebViewTblCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: WebViewTblCell.identifier) as! WebViewTblCell
             cell.selectionStyle = .none
             cell.viewWK.scrollView.isScrollEnabled = false
             cell.viewWK.navigationDelegate = self
-            
             cell.viewWK.scrollView.bounces = false
-            cell.viewWK.isUserInteractionEnabled = false
+            cell.viewWK.isUserInteractionEnabled = true
             cell.viewWK.contentMode = .scaleToFill
-            let headString = "<head><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></head>"
-            
+            let headString = Constants.shared.constHeaderStringForWebView
             cell.viewWK.loadHTMLString(headString + self.detailArray[indexPath.section].htmlStr, baseURL: nil)
             return cell
         }
@@ -191,9 +178,9 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
         }else{
             if !self.detailArray[indexPath.section].isExpanded{
                 // Calculate the height of the cell based on the content size of the WKWebView
-                webView.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
+                webView.evaluateJavaScript(Constants.shared.constDocReadyState, completionHandler: { (complete, error) in
                     if complete != nil {
-                        webView.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
+                        webView.evaluateJavaScript(Constants.shared.constDocScrollHeight, completionHandler: { (height, error) in
                             print(height as! CGFloat)
                             self.cellHeights[indexPath] = (height as? CGFloat ?? 0.0) + 40.0
                             print(self.cellHeights)
@@ -208,18 +195,10 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
                 })
             }
         }
-        
-        
-        
-        
-        
-        
+   
         
     }
-    
-    
-    
-    
+
     private func indexPathForWebView(_ webView: WKWebView) -> IndexPath? {
         
         let point = CGPoint(x: webView.bounds.midX, y: webView.bounds.midY)
@@ -252,7 +231,7 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if self.detailArray[section].title.elementsEqual("separator"){
+        if self.detailArray[section].title.elementsEqual(TitleConfig.separtor.rawValue){
             return 50
         }
         return UITableView.automaticDimension
@@ -262,20 +241,15 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if self.detailArray[section].title.elementsEqual("separator"){
-            let headerCell = tableView.dequeueReusableCell(withIdentifier: "SeparatorTblCell") as! SeparatorTblCell
+        if self.detailArray[section].title.elementsEqual(TitleConfig.separtor.rawValue){
+            let headerCell = tableView.dequeueReusableCell(withIdentifier: SeparatorTblCell.identifier) as! SeparatorTblCell
             headerCell.contentView.tag = section
             return headerCell.contentView
         }else{
-            let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
+            let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier) as! HeaderCell
             print("section \(section) expended is \(detailArray[section].isExpanded)")
             
-            if section == 0 || self.detailArray[section].htmlStr.elementsEqual(""){
-                headerCell.lblTitle.text = detailArray[section].title
-            }else{
-                headerCell.lblTitle.text = "section \(section)"
-            }
-            
+            headerCell.lblTitle.text = detailArray[section].title
             
             if detailArray[section].isExpanded{
                 headerCell.imgArrow.image = UIImage(named: "up")
@@ -299,11 +273,16 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
         if self.detailArray[section].htmlStr.elementsEqual(""){
             print("not tapable")
         }else{
+            let contentOffset = tblView.contentOffset
             self.detailArray[section].isExpanded = !self.detailArray[section].isExpanded
             let indexPathsToRefresh = [IndexPath(row: 0, section: section), ]
             
-    //        tblView.reloadRows(at: indexPathsToRefresh, with: .automatic)
-            tblView.reloadSections(IndexSet(integer: section), with: .automatic)
+    //      tblView.reloadRows(at: indexPathsToRefresh, with: .automatic)
+            
+            tblView.reloadSections(IndexSet(integer: section), with: .none)
+//            tblView.reloadData()
+//            tblView.scrollToRow(at: indexPathsToRefresh[0], at: .top, animated: true)
+            
         }
         
         

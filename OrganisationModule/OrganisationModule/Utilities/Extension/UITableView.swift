@@ -12,11 +12,11 @@ protocol Registerable: AnyObject {
     static func getNIB() -> UINib
 }
 
-extension Registerable {
+extension UITableViewCell {
     static var identifier: String {
         return String(describing: self)
     }
-    static func getNIB() -> UINib {
+    static func nib() -> UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
 }
