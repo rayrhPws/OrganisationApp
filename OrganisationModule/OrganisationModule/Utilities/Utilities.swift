@@ -32,5 +32,19 @@ class Utilities {
         let predicateTest = NSPredicate(format: "SELF MATCHES %@", "^(([^ ]?)(^[a-zA-Z].*[a-zA-Z]$)([^ ]?))$")
         return predicateTest.evaluate(with: testStr)
     }
+    
+    class func configuringLabelForAewsomeFont(label: UILabel, iconName: String){
+        let fontConfig = UIFont (name: Constants.shared.constFontAewsomeForIcon, size: 20)
+        label.textColor = .white
+        label.font = fontConfig
+        label.text = iconName
+    }
+    class func removeFaPrefix(from iconString: String) -> String {
+        if iconString.starts(with: "fa-") {
+          return String(iconString.dropFirst(3)) // Remove the first 3 characters ("fa-")
+        } else {
+          return iconString
+        }
+      }
 
 }

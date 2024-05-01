@@ -10,7 +10,7 @@ import Alamofire
 
 class NetworkManager : NSObject {
     
-    func request<T: Decodable>(_ endPoint: String,
+    func request<T: Decodable>(_ callType: String,
                                method: HTTPMethod = .get,
                                parameters: Parameters? = nil,
                                encoding: ParameterEncoding = URLEncoding.default,
@@ -18,10 +18,11 @@ class NetworkManager : NSObject {
                                modelType: T.Type = EmptyModel.self as! T.Type,
                                success: @escaping (_ result: Any?) -> Void,
                                failure: @escaping (_ error: NSError?) -> Void) {
+        var url = Constants.shared.baseUrl
+        if callType.elementsEqual(baseUrlType.mapBaseUrl.rawValue){
+            url = Constants.shared.mapBaseUrl
+        }
         
-        
-        
-        let url = Constants.shared.baseUrl
         
         let performRequest: () -> () = {
             

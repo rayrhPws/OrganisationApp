@@ -11,11 +11,20 @@ class Constants {
     static let shared: Constants = Constants()
     var languageBool: Bool = false
     let baseUrl = "https://www.welzheim.de/app-connection-stadt/app-connection-buergerserviceportal?action=getSBWLeistungenDetails&baseColor=006B23&baseFontSize=16&singleItemId=478"
-//    var titlesArray = ["Expanded item one", "Expanded item two","Expanded item three","Expanded item four","Expanded item five","Expanded item six","Expanded item seven","Expanded item eight","Expanded item nine","Expanded item ten","Expanded item eleven","Expanded item twelve","Expanded item thirteen","Expanded item fourteen","Expanded item fifteen","Expanded item sixteen","Expanded item seventeen","Expanded item eighteen"]
+    
+  let mapBaseUrl =   "https://www.schaeferlauf-markgroeningen.de/index.php?id=269&baseColor=0571B1&baseFontSize=16&action=getGeomap2Items"
+    
+
     
     var constHeaderStringForWebView = "<head><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></head>"
     var constDocReadyState = "document.readyState"
     var constDocScrollHeight = "document.body.scrollHeight"
+    var constFontAewsomeForIcon = "FontAwesome6Free-Solid"
+}
+enum baseUrlType: String{
+    case mapBaseUrl = "mapBaseUrl"
+    case orgBaseUrl = "orgBaseUrl"
+    
 }
 
 enum TitleConfig: String {

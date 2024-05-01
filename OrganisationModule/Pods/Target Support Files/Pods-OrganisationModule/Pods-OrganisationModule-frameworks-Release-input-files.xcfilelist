@@ -1,2 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-OrganisationModule/Pods-OrganisationModule-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework
+${BUILT_PRODUCTS_DIR}/FontAwesomeKit.Swift/FontAwesomeKit_Swift.framework

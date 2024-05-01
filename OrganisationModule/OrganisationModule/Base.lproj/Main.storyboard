@@ -3,10 +3,16 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Font Awesome 6 Free-Regular-400.otf">
+            <string>FontAwesome6Free-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="gk0-16-lNg">
@@ -16,12 +22,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="XG0-cp-y4b" kind="relationship" relationship="rootViewController" id="Thy-Ik-3aj"/>
+                        <segue destination="6Z0-Ve-Atx" kind="relationship" relationship="rootViewController" id="7O6-UJ-E5X"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f90-rW-jzN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1140" y="-34"/>
+            <point key="canvasLocation" x="-1242" y="-23"/>
         </scene>
         <!--Organization ModuleVC-->
         <scene sceneID="ei9-Nm-lH1">
@@ -56,12 +62,68 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M52-Fq-fW4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-399.23664122137404" y="-23.239436619718312"/>
+            <point key="canvasLocation" x="-387" y="330"/>
+        </scene>
+        <!--Map Vc-->
+        <scene sceneID="wwW-f3-Kim">
+            <objects>
+                <viewController storyboardIdentifier="MapVc" id="6Z0-Ve-Atx" customClass="MapVc" customModule="OrganisationModule" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vgP-pT-og3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXR-Mo-r5Z">
+                                <rect key="frame" x="0.0" y="59" width="393" height="459"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bus-school" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VK0-Ha-jq7">
+                                <rect key="frame" x="50" y="568" width="293" height="200"/>
+                                <fontDescription key="fontDescription" name="FontAwesome6Free-Regular" family="Font Awesome 6 Free" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marker1" translatesAutoresizingMaskIntoConstraints="NO" id="mJl-B0-RMq">
+                                <rect key="frame" x="323" y="538" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8PW-6s-Wwk"/>
+                                    <constraint firstAttribute="height" constant="50" id="ToC-j2-HTc"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gyp-Zs-j7s"/>
+                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <constraints>
+                            <constraint firstItem="gyp-Zs-j7s" firstAttribute="trailing" secondItem="GXR-Mo-r5Z" secondAttribute="trailing" id="1Ei-4F-JZy"/>
+                            <constraint firstItem="gyp-Zs-j7s" firstAttribute="trailing" secondItem="VK0-Ha-jq7" secondAttribute="trailing" constant="50" id="4de-zK-2Nc"/>
+                            <constraint firstItem="gyp-Zs-j7s" firstAttribute="bottom" secondItem="VK0-Ha-jq7" secondAttribute="bottom" constant="50" id="I8L-12-esI"/>
+                            <constraint firstItem="VK0-Ha-jq7" firstAttribute="leading" secondItem="gyp-Zs-j7s" secondAttribute="leading" constant="50" id="N6y-OV-onP"/>
+                            <constraint firstItem="gyp-Zs-j7s" firstAttribute="trailing" secondItem="mJl-B0-RMq" secondAttribute="trailing" constant="20" id="R15-OW-G6W"/>
+                            <constraint firstItem="gyp-Zs-j7s" firstAttribute="bottom" secondItem="GXR-Mo-r5Z" secondAttribute="bottom" constant="300" id="X1b-2G-geh"/>
+                            <constraint firstItem="GXR-Mo-r5Z" firstAttribute="top" secondItem="gyp-Zs-j7s" secondAttribute="top" id="YC6-UX-8h7"/>
+                            <constraint firstItem="GXR-Mo-r5Z" firstAttribute="leading" secondItem="gyp-Zs-j7s" secondAttribute="leading" id="aA7-cd-fCp"/>
+                            <constraint firstItem="VK0-Ha-jq7" firstAttribute="top" secondItem="GXR-Mo-r5Z" secondAttribute="bottom" constant="50" id="nlE-bt-ftx"/>
+                            <constraint firstItem="mJl-B0-RMq" firstAttribute="top" secondItem="GXR-Mo-r5Z" secondAttribute="bottom" constant="20" id="xnx-Vw-T7J"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cMH-9d-OU6"/>
+                    <connections>
+                        <outlet property="imgTest" destination="mJl-B0-RMq" id="hKf-Nd-SVA"/>
+                        <outlet property="lblTest" destination="VK0-Ha-jq7" id="akZ-fw-jIB"/>
+                        <outlet property="viewMap" destination="GXR-Mo-r5Z" id="CUm-gE-C1r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kuO-Ro-HFf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="334" y="-22"/>
         </scene>
     </scenes>
     <resources>
+        <image name="marker1" width="375" height="375"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -7,6 +7,8 @@ target 'OrganisationModule' do
 
   # Pods for OrganisationModule
 pod 'Alamofire', '~> 5.2'
+pod 'FontAwesome.swift'
+pod 'FontAwesomeKit.Swift'
 
 
 end

@@ -24,6 +24,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="5ka-lx-Xuv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="P5m-7v-I2H"/>
                     <constraint firstAttribute="trailing" secondItem="5ka-lx-Xuv" secondAttribute="trailing" constant="20" id="nOx-f9-8aM"/>

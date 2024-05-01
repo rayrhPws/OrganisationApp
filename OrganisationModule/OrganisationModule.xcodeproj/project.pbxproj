@@ -21,11 +21,18 @@
 		802824CC2BBC67AC00CECC1C /* DynamicHeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802824CA2BBC67AC00CECC1C /* DynamicHeightCell.xib */; };
 		802824CF2BBC6E4200CECC1C /* SeparatorTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802824CD2BBC6E4200CECC1C /* SeparatorTblCell.swift */; };
 		802824D02BBC6E4200CECC1C /* SeparatorTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802824CE2BBC6E4200CECC1C /* SeparatorTblCell.xib */; };
+		80381B472BD74D0E00C6D9ED /* MapVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80381B462BD74D0E00C6D9ED /* MapVc.swift */; };
+		80381B492BD75A8800C6D9ED /* annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80381B482BD75A8800C6D9ED /* annotation.swift */; };
+		80381B4B2BD75EC100C6D9ED /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80381B4A2BD75EC100C6D9ED /* MapModel.swift */; };
+		803FAF692BE0B0A20040E817 /* CustomCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803FAF682BE0B0A20040E817 /* CustomCircularView.swift */; };
 		80A0FBC92BB5734C00A41CE1 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A0FBC72BB5734C00A41CE1 /* HeaderCell.swift */; };
 		80A0FBCA2BB5734C00A41CE1 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A0FBC82BB5734C00A41CE1 /* HeaderCell.xib */; };
 		80A66ED32BAB68E700CFA51E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A66ED22BAB68E700CFA51E /* NetworkManager.swift */; };
 		80A66ED52BAB6BA900CFA51E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A66ED42BAB6BA900CFA51E /* Helper.swift */; };
 		80A66ED72BAB6CBD00CFA51E /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A66ED62BAB6CBD00CFA51E /* EmptyModel.swift */; };
+		80B301542BE2106200DFC337 /* Font Awesome 6 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 80B301512BE2106200DFC337 /* Font Awesome 6 Free-Regular-400.otf */; };
+		80B301552BE2106200DFC337 /* Font Awesome 6 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 80B301522BE2106200DFC337 /* Font Awesome 6 Free-Solid-900.otf */; };
+		80B301562BE2106200DFC337 /* Font Awesome 6 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 80B301532BE2106200DFC337 /* Font Awesome 6 Brands-Regular-400.otf */; };
 		80D6DABF2BA8C2D300FC85DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6DA212BA8C2D200FC85DF /* Constants.swift */; };
 		80D6DAC02BA8C2D300FC85DF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6DA222BA8C2D200FC85DF /* Utilities.swift */; };
 		80D6DAC22BA8C2D300FC85DF /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6DA252BA8C2D200FC85DF /* UIApplication+Extension.swift */; };
@@ -84,11 +91,18 @@
 		802824CA2BBC67AC00CECC1C /* DynamicHeightCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DynamicHeightCell.xib; sourceTree = "<group>"; };
 		802824CD2BBC6E4200CECC1C /* SeparatorTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorTblCell.swift; sourceTree = "<group>"; };
 		802824CE2BBC6E4200CECC1C /* SeparatorTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorTblCell.xib; sourceTree = "<group>"; };
+		80381B462BD74D0E00C6D9ED /* MapVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVc.swift; sourceTree = "<group>"; };
+		80381B482BD75A8800C6D9ED /* annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = annotation.swift; sourceTree = "<group>"; };
+		80381B4A2BD75EC100C6D9ED /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
+		803FAF682BE0B0A20040E817 /* CustomCircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCircularView.swift; sourceTree = "<group>"; };
 		80A0FBC72BB5734C00A41CE1 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		80A0FBC82BB5734C00A41CE1 /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		80A66ED22BAB68E700CFA51E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		80A66ED42BAB6BA900CFA51E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		80A66ED62BAB6CBD00CFA51E /* EmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
+		80B301512BE2106200DFC337 /* Font Awesome 6 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 6 Free-Regular-400.otf"; sourceTree = "<group>"; };
+		80B301522BE2106200DFC337 /* Font Awesome 6 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 6 Free-Solid-900.otf"; sourceTree = "<group>"; };
+		80B301532BE2106200DFC337 /* Font Awesome 6 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 6 Brands-Regular-400.otf"; sourceTree = "<group>"; };
 		80D6DA212BA8C2D200FC85DF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		80D6DA222BA8C2D200FC85DF /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		80D6DA252BA8C2D200FC85DF /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
@@ -157,6 +171,7 @@
 		801BB6182BA89D6E005226B4 = {
 			isa = PBXGroup;
 			children = (
+				805772692BDFC6A400D8DE1D /* AwesomeFonts */,
 				80D6DB512BA8DC2900FC85DF /* Models */,
 				801BB6232BA89D6E005226B4 /* OrganisationModule */,
 				801BB6222BA89D6E005226B4 /* Products */,
@@ -195,9 +210,29 @@
 		801BB63B2BA89E23005226B4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				80381B452BD74CEA00C6D9ED /* Map */,
 				80E67CC02BACA55500B5BC9D /* organizationModule */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		80381B452BD74CEA00C6D9ED /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				80381B462BD74D0E00C6D9ED /* MapVc.swift */,
+				80381B482BD75A8800C6D9ED /* annotation.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		805772692BDFC6A400D8DE1D /* AwesomeFonts */ = {
+			isa = PBXGroup;
+			children = (
+				80B301532BE2106200DFC337 /* Font Awesome 6 Brands-Regular-400.otf */,
+				80B301512BE2106200DFC337 /* Font Awesome 6 Free-Regular-400.otf */,
+				80B301522BE2106200DFC337 /* Font Awesome 6 Free-Solid-900.otf */,
+			);
+			path = AwesomeFonts;
 			sourceTree = "<group>";
 		};
 		80D6DA202BA8C2D200FC85DF /* Utilities */ = {
@@ -221,6 +256,7 @@
 				80D6DA522BA8C2D200FC85DF /* AttachmentHandler.swift */,
 				80D6DABB2BA8C2D300FC85DF /* Color.swift */,
 				80A66ED42BAB6BA900CFA51E /* Helper.swift */,
+				803FAF682BE0B0A20040E817 /* CustomCircularView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -274,6 +310,7 @@
 				80D6DB522BA8DC3900FC85DF /* jsonModel.swift */,
 				80A66ED62BAB6CBD00CFA51E /* EmptyModel.swift */,
 				80E4E3E02BB9E273007A5E3D /* ExpandedModel.swift */,
+				80381B4A2BD75EC100C6D9ED /* MapModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -377,8 +414,11 @@
 				801BB6312BA89D6F005226B4 /* Assets.xcassets in Resources */,
 				801BB62C2BA89D6E005226B4 /* Main.storyboard in Resources */,
 				801BB6412BA89FCA005226B4 /* localJson.json in Resources */,
+				80B301542BE2106200DFC337 /* Font Awesome 6 Free-Regular-400.otf in Resources */,
 				80D6DAD52BA8C2D300FC85DF /* MessagePopup.xib in Resources */,
+				80B301552BE2106200DFC337 /* Font Awesome 6 Free-Solid-900.otf in Resources */,
 				80D6DAD92BA8C2D300FC85DF /* AlertPopupWithTwoButtons.xib in Resources */,
+				80B301562BE2106200DFC337 /* Font Awesome 6 Brands-Regular-400.otf in Resources */,
 				80E67CC72BACA5A200B5BC9D /* WebViewTblCell.xib in Resources */,
 				80A0FBCA2BB5734C00A41CE1 /* HeaderCell.xib in Resources */,
 				80D6DAD72BA8C2D300FC85DF /* AlertPopup.xib in Resources */,
@@ -450,6 +490,7 @@
 				80D6DB532BA8DC3900FC85DF /* jsonModel.swift in Sources */,
 				80E4E3E12BB9E273007A5E3D /* ExpandedModel.swift in Sources */,
 				80D6DAD62BA8C2D300FC85DF /* AlertPopup.swift in Sources */,
+				80381B492BD75A8800C6D9ED /* annotation.swift in Sources */,
 				801BB62F2BA89D6E005226B4 /* OrganisationModule.xcdatamodeld in Sources */,
 				80D6DAC72BA8C2D300FC85DF /* URL+Extension.swift in Sources */,
 				80D6DAEC2BA8C2D300FC85DF /* AttachmentHandler.swift in Sources */,
@@ -459,6 +500,7 @@
 				80D6DACA2BA8C2D300FC85DF /* storyboarded.swift in Sources */,
 				80D6DAE02BA8C2D300FC85DF /* IMAlertViewController.swift in Sources */,
 				80D6DADB2BA8C2D300FC85DF /* MessagePopup.swift in Sources */,
+				80381B4B2BD75EC100C6D9ED /* MapModel.swift in Sources */,
 				80D6DAC92BA8C2D300FC85DF /* UITableView.swift in Sources */,
 				80D6DACE2BA8C2D300FC85DF /* UIViewController.swift in Sources */,
 				80D6DAE82BA8C2D300FC85DF /* GradientLabel.swift in Sources */,
@@ -471,6 +513,7 @@
 				80D6DAD82BA8C2D300FC85DF /* AlertPopupWithMultipleChoice.swift in Sources */,
 				802824CF2BBC6E4200CECC1C /* SeparatorTblCell.swift in Sources */,
 				802824CB2BBC67AC00CECC1C /* DynamicHeightCell.swift in Sources */,
+				803FAF692BE0B0A20040E817 /* CustomCircularView.swift in Sources */,
 				80E67CC62BACA5A200B5BC9D /* WebViewTblCell.swift in Sources */,
 				80D6DADF2BA8C2D300FC85DF /* Refreshable.swift in Sources */,
 				80D6DADE2BA8C2D300FC85DF /* IntrinsicallySizedTableView.swift in Sources */,
@@ -479,6 +522,7 @@
 				80A66ED72BAB6CBD00CFA51E /* EmptyModel.swift in Sources */,
 				80D6DAE52BA8C2D300FC85DF /* Storyboard.swift in Sources */,
 				80D6DAC22BA8C2D300FC85DF /* UIApplication+Extension.swift in Sources */,
+				80381B472BD74D0E00C6D9ED /* MapVc.swift in Sources */,
 				801BB63F2BA89E50005226B4 /* organizationModuleVC.swift in Sources */,
 				80D6DAE42BA8C2D300FC85DF /* Reachability.swift in Sources */,
 			);

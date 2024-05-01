@@ -221,9 +221,9 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
                     print("index path section  \(indexPath.section) and row is \(indexPath.row)")
                     return height
                 }
-                return 20
+                return 10
             }
-            return 20
+            return 10
         }
         
         
@@ -248,6 +248,11 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
         }else{
             let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier) as! HeaderCell
             print("section \(section) expended is \(detailArray[section].isExpanded)")
+            if detailArray[section].title.elementsEqual(TitleConfig.formular.rawValue) || detailArray[section].title.elementsEqual(TitleConfig.process.rawValue){
+                headerCell.imgArrow.isHidden = true
+            }else{
+                headerCell.imgArrow.isHidden = false
+            }
             
             headerCell.lblTitle.text = detailArray[section].title
             
@@ -277,11 +282,11 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
             self.detailArray[section].isExpanded = !self.detailArray[section].isExpanded
             let indexPathsToRefresh = [IndexPath(row: 0, section: section), ]
             
-    //      tblView.reloadRows(at: indexPathsToRefresh, with: .automatic)
-            
-            tblView.reloadSections(IndexSet(integer: section), with: .none)
+//            tblView.reloadRows(at: indexPathsToRefresh, with: .middle)
+//            tblView.contentInset = UIEdgeInsets.zero
+            tblView.reloadSections(IndexSet(integer: section), with: .automatic)
 //            tblView.reloadData()
-//            tblView.scrollToRow(at: indexPathsToRefresh[0], at: .top, animated: true)
+            tblView.scrollToRow(at: indexPathsToRefresh[0], at: .top, animated: true)
             
         }
         

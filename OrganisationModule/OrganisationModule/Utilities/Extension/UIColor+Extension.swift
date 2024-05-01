@@ -94,3 +94,24 @@ extension UIColor {
     static let Color1B1B1B = UIColor(named: "Color#1B1B1B")!
 }
 
+extension UIColor {
+    public static func named(_ name: String) -> UIColor? {
+        let colorMap: [String: UIColor] = [
+            "red": .red,
+            "green": .green,
+            "blue": .blue,
+            "black": .black,
+            "white": .white,
+            "gray": .gray,
+            "yellow": .yellow,
+            "orange": .orange,
+            "purple": .purple,
+            "brown": .brown,
+            "cyan": .cyan
+        ]
+        
+        let cleanedName = name.replacingOccurrences(of: " ", with: "").lowercased()
+        return colorMap[cleanedName] ?? .black // Return black if not found
+        
+    }
+}
