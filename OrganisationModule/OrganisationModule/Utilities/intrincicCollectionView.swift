@@ -27,9 +27,17 @@ class IntrinsicCollectionView: UICollectionView {
             return intrinsicContentSize
         }
     }
+    override var contentSize: CGSize {
+        didSet {
+            self.invalidateIntrinsicContentSize()
+        }
+    }
         // MARK: - setup
     func setup() {
         self.isScrollEnabled = false
         self.bounces = false
     }
 }
+
+
+

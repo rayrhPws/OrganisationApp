@@ -16,6 +16,8 @@ class Constants {
     
 
     
+
+    
     var constHeaderStringForWebView = "<head><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></head>"
     var constDocReadyState = "document.readyState"
     var constDocScrollHeight = "document.body.scrollHeight"
@@ -24,6 +26,7 @@ class Constants {
 enum baseUrlType: String{
     case mapBaseUrl = "mapBaseUrl"
     case orgBaseUrl = "orgBaseUrl"
+    case endPointAsUrl = "endPointAsUrl"
     
 }
 

@@ -14,13 +14,15 @@ class PrimaryAnnotation: NSObject, MKAnnotation {
   var subtitle: String?
   var iconString: String?
   var color: UIColor
+    var markerInfo: Marker?
 
-  init(coordinate: CLLocationCoordinate2D, title: String?, subtitle: String?, iconString: String?, color: UIColor) {
+    init(coordinate: CLLocationCoordinate2D, title: String?, subtitle: String?, iconString: String?, color: UIColor, marker: Marker) {
     self.coordinate = coordinate
     self.title = title
     self.subtitle = subtitle
     self.iconString = iconString
     self.color = color
+    self.markerInfo = marker
   }
 }
 

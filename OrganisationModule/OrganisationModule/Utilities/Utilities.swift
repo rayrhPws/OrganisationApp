@@ -35,7 +35,8 @@ class Utilities {
     
     class func configuringLabelForAewsomeFont(label: UILabel, iconName: String){
         let fontConfig = UIFont (name: Constants.shared.constFontAewsomeForIcon, size: 20)
-        label.textColor = .white
+        label.textColor = .black
+//        label.backgroundColor = .black
         label.font = fontConfig
         label.text = iconName
     }

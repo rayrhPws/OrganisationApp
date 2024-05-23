@@ -11,6 +11,7 @@ import Alamofire
 class NetworkManager : NSObject {
     
     func request<T: Decodable>(_ callType: String,
+                               urlFromRequest: String?  = "",
                                method: HTTPMethod = .get,
                                parameters: Parameters? = nil,
                                encoding: ParameterEncoding = URLEncoding.default,
@@ -21,6 +22,8 @@ class NetworkManager : NSObject {
         var url = Constants.shared.baseUrl
         if callType.elementsEqual(baseUrlType.mapBaseUrl.rawValue){
             url = Constants.shared.mapBaseUrl
+        }else if callType.elementsEqual(baseUrlType.endPointAsUrl.rawValue){
+            url = urlFromRequest ?? ""
         }
         
         

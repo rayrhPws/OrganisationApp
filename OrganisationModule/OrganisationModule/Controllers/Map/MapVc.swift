@@ -13,7 +13,7 @@ import FontAwesomeKit_Swift
 
 class MapVc: UIViewController, MKMapViewDelegate {
     let network = NetworkManager()
-    var markers = [marker]()
+    var markers = [Marker]()
     @IBOutlet weak var lblTest: UILabel!
     @IBOutlet weak var imgTest: UIImageView!
     @IBOutlet weak var viewMap: MKMapView!
@@ -45,7 +45,7 @@ extension MapVc{
         ) { result in
             if let response = result as? MapModel{
                 
-                self.markers = response.items ?? [marker]()
+                self.markers = response.items ?? [Marker]()
                 self.addAnnotationForAddingMarkersToMap()
                 
             }
@@ -54,12 +54,30 @@ extension MapVc{
         }
         
     }
+    
+    func getMarkerDetailAndOpenDetailSheet(url: String){
+        network.request(url,
+                        encoding: JSONEncoding.default,
+                        modelType: Marker.self
+        ) { result in
+            if let response = result as? Marker{
+                
+                print(response)
+                
+            }
+        } failure: { error in
+            print(error?.localizedDescription as Any)
+        }
+        
+    }
+    
+    
     func addAnnotationForAddingMarkersToMap(){
         
         var annotationArray = [PrimaryAnnotation]()
         for item in markers{
-            if let data = item.data, let iconInfor = item.iconInfo{
-                let objAnnotation =  PrimaryAnnotation(coordinate: CLLocationCoordinate2D(latitude: data.coords?[0].lat ?? 0.0, longitude: data.coords?[0].lng ?? 0.0), title: item.title, subtitle: "subtitle",  iconString: Utilities.removeFaPrefix(from: iconInfor.iconName ?? "parking"), color: UIColor.named(iconInfor.iconColor ?? "red") ?? .red)
+            if let data = item.markerData, let iconInfor = item.iconInfo{
+                let objAnnotation =  PrimaryAnnotation(coordinate: CLLocationCoordinate2D(latitude: data.coords?[0].lat ?? 0.0, longitude: data.coords?[0].lng ?? 0.0), title: item.title, subtitle: "subtitle",  iconString: Utilities.removeFaPrefix(from: iconInfor.iconName ?? "parking"), color: UIColor.named(iconInfor.iconColor ?? "red") ?? .red, marker: item)
                 annotationArray.append(objAnnotation)
                 
             }
@@ -101,6 +119,45 @@ extension MapVc{
       return annotationView
     }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        if let annotation = view.annotation {
+            // Check if the annotation is of type PrimaryAnnotation
+            if let primaryAnnotation = annotation as? PrimaryAnnotation {
+                
+                let title = primaryAnnotation.title ?? "No Title"
+                if let markerInfo = primaryAnnotation.markerInfo{
+                    print("Selected annotation title: \(title)")
+                    self.openBottomSheet(markerInfo: markerInfo)
+                }
+               
+                
+            }
+        }
+
+        
+        
+
+    }
+    
+    
+    func openBottomSheet(markerInfo: Marker){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "markerDetailSheetVc")  as? markerDetailSheetVc
+        vc?.modalPresentationStyle = .pageSheet
+        vc?.markerInfo = markerInfo
+        let smallDetentId = UISheetPresentationController.Detent.Identifier("small")
+        let smallDetent = UISheetPresentationController.Detent.custom(identifier: smallDetentId) { context in
+            return self.view.frame.height * 0.35
+        }
+        if
+            #available(iOS 15.0, *),
+            let sheet = vc?.sheetPresentationController
+        {
+            sheet.detents = [smallDetent , .medium(), .large()]
+        }
+        present(vc!, animated: true, completion: nil)
+    }
 
     
     func createViewAsImage(image: UIImage, fontIconStr: String) -> UIImage? {
@@ -153,5 +210,27 @@ extension UIImage {
         UIGraphicsEndImageContext()
 
         return newImage!
+    }
+}
+
+
+extension MapVc{
+    @IBAction func openBottomSheet(){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = storyboard.instantiateViewController(withIdentifier: "markerDetailSheetVc")
+        vc.modalPresentationStyle = .pageSheet
+        let smallDetentId = UISheetPresentationController.Detent.Identifier("small")
+        let smallDetent = UISheetPresentationController.Detent.custom(identifier: smallDetentId) { context in
+            return self.view.frame.height * 0.35
+        }
+        if
+            #available(iOS 15.0, *),
+            let sheet = vc.sheetPresentationController
+        {
+            sheet.detents = [smallDetent , .medium(), .large()]
+        }
+        present(vc, animated: true, completion: nil)
     }
 }

@@ -8,5 +8,9 @@
 import UIKit
 
 class CategoryCollCell: UICollectionViewCell {
+    static let reuseIdentifier = "CategoryCollCell"
+    @IBOutlet weak var lblTitle: UILabel!
+    
+
     
 }

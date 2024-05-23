@@ -5,25 +5,33 @@ import Alamofire
 
 // MARK: - MapModel
 struct MapModel: Codable {
-    var items: [marker]?
+    var items: [Marker]?
     var status: String?
 }
 
 
 // MARK: - Item
-struct marker: Codable {
-    var title, beschreibung: String?
-//    var id: Int?
-//    var kategorien: [Icon]?
+struct Marker: Codable {
+    var title, detail : String?
+    var id: Int?
+    var image: ImageData?
+    var category: [Icon]?
     var iconInfo: Icon?
-    var data: DataClass?
-//    var urlPopUp, urlDetails: String?
-//    var isDetailsWebsite: Bool?
+    var markerData: DataClass?
+    var imagesList: [ImageData?]?
+    var bottomSheetUrl: String?
+
     enum CodingKeys: String, CodingKey {
         case title = "bezeichnung"
+        case detail = "beschreibung"
         case iconInfo = "icon"
-        case beschreibung
-        case data
+        case markerData = "data"
+        case image = "bild"
+        case imagesList = "bilder"
+        case category = "kategorien"
+        case id
+        case bottomSheetUrl = "urlDetails"
+        
     }
 }
 
@@ -35,6 +43,16 @@ struct DataClass: Codable {
     var options: Options?
 }
 
+struct ImageData: Codable {
+    var title: String?
+    var id: Int?
+    var imgUrl : String?
+    enum CodingKeys: String, CodingKey {
+        case title = "bezeichnung"
+        case id
+        case imgUrl = "url"
+    }
+}
 
 
 // MARK: - Coord
@@ -67,7 +85,7 @@ struct Options: Codable {
 struct Icon: Codable {
     var title: String?
     var id: Int?
-    var iconName, iconStyle, iconColor, form: String?
+    var iconName, iconStyle, iconColor, iconType: String?
 
     enum CodingKeys: String, CodingKey {
         
@@ -76,6 +94,11 @@ struct Icon: Codable {
         case title = "bezeichnung"
         case iconColor = "farbe"
         case iconStyle = "icon_style"
-        case form
+        case iconType = "form"
     }
+}
+
+
+struct MarkerDetailModel: Codable {
+    var singleItem: Marker?
 }

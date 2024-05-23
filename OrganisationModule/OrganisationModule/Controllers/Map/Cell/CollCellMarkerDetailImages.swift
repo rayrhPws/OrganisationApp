@@ -8,5 +8,8 @@
 import UIKit
 
 class CollCellMarkerDetailImages: UICollectionViewCell {
+    static let reuseIdentifier = "CollCellMarkerDetailImages"
+    @IBOutlet weak var imgMarker: UIImageView!
+    @IBOutlet weak var lblDesc: UILabel!
     
 }
