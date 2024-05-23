@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "marker1.png",
+      "filename" : "images.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "marker1@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
