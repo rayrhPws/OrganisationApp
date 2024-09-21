@@ -14,6 +14,8 @@ class organizationModuleVC: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var lblTest: UILabel!
     var cellHeights: [IndexPath: CGFloat] = [:]
     var detailArray = [ExpandedModel]()
+    var testhtml1 = ""
+    var testhtml2 = ""
     
     @IBOutlet weak var tblView: IntrinsicallySizedTableView!
     let network = NetworkManager()
@@ -68,12 +70,15 @@ class organizationModuleVC: UIViewController, WKNavigationDelegate {
                 
                 if response.singleItem?.verfahrensablauf != nil{
                     self.detailArray.append(ExpandedModel(title: TitleConfig.title2.rawValue, htmlStr: response.singleItem?.verfahrensablauf ?? ""))
+                    self.testhtml1 =  response.singleItem?.verfahrensablauf ?? ""
                 }
                 if response.singleItem?.fristen != nil{
                     self.detailArray.append(ExpandedModel(title: TitleConfig.title3.rawValue, htmlStr: response.singleItem?.fristen ?? ""))
+                    self.testhtml2 =  response.singleItem?.fristen ?? ""
                 }
                 if response.singleItem?.unterlagen != nil{
                     self.detailArray.append(ExpandedModel(title: TitleConfig.title4.rawValue, htmlStr: response.singleItem?.unterlagen ?? ""))
+                    
                 }
                 if response.singleItem?.kosten != nil{
                     self.detailArray.append(ExpandedModel(title: TitleConfig.title5.rawValue, htmlStr: response.singleItem?.kosten ?? ""))
@@ -132,6 +137,16 @@ class organizationModuleVC: UIViewController, WKNavigationDelegate {
         self.tblView.layoutIfNeeded()
         
     }
+    @IBAction func testButon(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let secondVC = storyboard.instantiateViewController(withIdentifier: "secondApproachTestVC") as? secondApproachTestVC {
+                    
+                    // Navigate to the SecondViewController
+                    secondVC.html1 = self.testhtml1
+                    secondVC.html2 = self.testhtml2
+                    self.navigationController?.pushViewController(secondVC, animated: true)
+                }
+    }
     
 }
 extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
@@ -169,6 +184,7 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
         
         
     }
+    
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("web view loaded")

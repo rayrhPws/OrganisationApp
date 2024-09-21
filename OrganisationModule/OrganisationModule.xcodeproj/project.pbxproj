@@ -26,6 +26,9 @@
 		80A66ED32BAB68E700CFA51E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A66ED22BAB68E700CFA51E /* NetworkManager.swift */; };
 		80A66ED52BAB6BA900CFA51E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A66ED42BAB6BA900CFA51E /* Helper.swift */; };
 		80A66ED72BAB6CBD00CFA51E /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A66ED62BAB6CBD00CFA51E /* EmptyModel.swift */; };
+		80C1D5AD2C9BB9A10060A451 /* secondApproachTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C1D5AC2C9BB9A10060A451 /* secondApproachTestVC.swift */; };
+		80C1D5B42C9BBB230060A451 /* secondApproachTestVCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C1D5B22C9BBB230060A451 /* secondApproachTestVCTableViewCell.swift */; };
+		80C1D5B52C9BBB230060A451 /* secondApproachTestVCTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C1D5B32C9BBB230060A451 /* secondApproachTestVCTableViewCell.xib */; };
 		80D6DABF2BA8C2D300FC85DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6DA212BA8C2D200FC85DF /* Constants.swift */; };
 		80D6DAC02BA8C2D300FC85DF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6DA222BA8C2D200FC85DF /* Utilities.swift */; };
 		80D6DAC22BA8C2D300FC85DF /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6DA252BA8C2D200FC85DF /* UIApplication+Extension.swift */; };
@@ -89,6 +92,9 @@
 		80A66ED22BAB68E700CFA51E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		80A66ED42BAB6BA900CFA51E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		80A66ED62BAB6CBD00CFA51E /* EmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
+		80C1D5AC2C9BB9A10060A451 /* secondApproachTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondApproachTestVC.swift; sourceTree = "<group>"; };
+		80C1D5B22C9BBB230060A451 /* secondApproachTestVCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondApproachTestVCTableViewCell.swift; sourceTree = "<group>"; };
+		80C1D5B32C9BBB230060A451 /* secondApproachTestVCTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = secondApproachTestVCTableViewCell.xib; sourceTree = "<group>"; };
 		80D6DA212BA8C2D200FC85DF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		80D6DA222BA8C2D200FC85DF /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		80D6DA252BA8C2D200FC85DF /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
@@ -283,6 +289,7 @@
 			children = (
 				801BB63E2BA89E50005226B4 /* organizationModuleVC.swift */,
 				80E67CC12BACA56700B5BC9D /* Cells */,
+				80C1D5AC2C9BB9A10060A451 /* secondApproachTestVC.swift */,
 			);
 			path = organizationModule;
 			sourceTree = "<group>";
@@ -298,6 +305,8 @@
 				802824CA2BBC67AC00CECC1C /* DynamicHeightCell.xib */,
 				802824CD2BBC6E4200CECC1C /* SeparatorTblCell.swift */,
 				802824CE2BBC6E4200CECC1C /* SeparatorTblCell.xib */,
+				80C1D5B22C9BBB230060A451 /* secondApproachTestVCTableViewCell.swift */,
+				80C1D5B32C9BBB230060A451 /* secondApproachTestVCTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -375,6 +384,7 @@
 				801BB6342BA89D6F005226B4 /* LaunchScreen.storyboard in Resources */,
 				802824D02BBC6E4200CECC1C /* SeparatorTblCell.xib in Resources */,
 				801BB6312BA89D6F005226B4 /* Assets.xcassets in Resources */,
+				80C1D5B52C9BBB230060A451 /* secondApproachTestVCTableViewCell.xib in Resources */,
 				801BB62C2BA89D6E005226B4 /* Main.storyboard in Resources */,
 				801BB6412BA89FCA005226B4 /* localJson.json in Resources */,
 				80D6DAD52BA8C2D300FC85DF /* MessagePopup.xib in Resources */,
@@ -453,11 +463,13 @@
 				801BB62F2BA89D6E005226B4 /* OrganisationModule.xcdatamodeld in Sources */,
 				80D6DAC72BA8C2D300FC85DF /* URL+Extension.swift in Sources */,
 				80D6DAEC2BA8C2D300FC85DF /* AttachmentHandler.swift in Sources */,
+				80C1D5B42C9BBB230060A451 /* secondApproachTestVCTableViewCell.swift in Sources */,
 				80A66ED32BAB68E700CFA51E /* NetworkManager.swift in Sources */,
 				80D6DADA2BA8C2D300FC85DF /* AlertPopupWithTwoButtons.swift in Sources */,
 				80D6DABF2BA8C2D300FC85DF /* Constants.swift in Sources */,
 				80D6DACA2BA8C2D300FC85DF /* storyboarded.swift in Sources */,
 				80D6DAE02BA8C2D300FC85DF /* IMAlertViewController.swift in Sources */,
+				80C1D5AD2C9BB9A10060A451 /* secondApproachTestVC.swift in Sources */,
 				80D6DADB2BA8C2D300FC85DF /* MessagePopup.swift in Sources */,
 				80D6DAC92BA8C2D300FC85DF /* UITableView.swift in Sources */,
 				80D6DACE2BA8C2D300FC85DF /* UIViewController.swift in Sources */,
