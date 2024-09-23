@@ -141,9 +141,7 @@ class organizationModuleVC: UIViewController, WKNavigationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let secondVC = storyboard.instantiateViewController(withIdentifier: "secondApproachTestVC") as? secondApproachTestVC {
                     
-                    // Navigate to the SecondViewController
-                    secondVC.html1 = self.testhtml1
-                    secondVC.html2 = self.testhtml2
+                    
                     self.navigationController?.pushViewController(secondVC, animated: true)
                 }
     }
@@ -201,19 +199,23 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
                             self.cellHeights[indexPath] = (height as? CGFloat ?? 0.0) + 40.0
                             print(self.cellHeights)
                             print("")
-                            
+
                             // Reload the corresponding cell to update its height
-                            
-                            
+
+
                         })
                     }
-                    
+
                 })
             }
         }
-   
-        
+
+
     }
+    
+
+    
+
 
     private func indexPathForWebView(_ webView: WKWebView) -> IndexPath? {
         
@@ -306,4 +308,5 @@ extension organizationModuleVC:UITableViewDataSource, UITableViewDelegate{
      
     }
 }
+
 
