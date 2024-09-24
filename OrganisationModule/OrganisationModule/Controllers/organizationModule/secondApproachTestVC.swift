@@ -181,9 +181,8 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
                 cell.viewWK.tag = indexPath.row
                 
                 if item.isExpanded{
-                    if !item.isLoaded{
-                        cell.viewWK.loadHTMLString(headString + item.htmlStr, baseURL: nil)
-                    }else{
+                    cell.viewWK.loadHTMLString(headString + item.htmlStr, baseURL: nil)
+                    if item.isLoaded{
                         cell.webkitHeight.constant = item.height
                     }
                     
@@ -247,16 +246,21 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
             // Update the corresponding dummy list item with the new height
             if row < self.detailArray.count {
                 if let cell = self.tblView.cellForRow(at: IndexPath(row: row, section: 0)) as? secondApproachTestVCTableViewCell {
-                    cell.webkitHeight.constant = height
-                    self.detailArray[row].isLoaded = true
-                    self.detailArray[row].height = height
-                    cell.layoutIfNeeded() // Ensure immediate application of height change
                     
-                    // Animate the table view's layout update
-                    UIView.animate(withDuration: 0.3) {
-                        self.tblView.beginUpdates()
-                        self.tblView.endUpdates()
+                    if !self.detailArray[row].isLoaded{
+                        cell.webkitHeight.constant = height
+                        self.detailArray[row].isLoaded = true
+                        self.detailArray[row].height = height
+                        cell.layoutIfNeeded() // Ensure immediate application of height change
+                        
+                        // Animate the table view's layout update
+                        UIView.animate(withDuration: 0.3) {
+                            self.tblView.beginUpdates()
+                            self.tblView.endUpdates()
+                        }
                     }
+                    
+                    
                 }
             }
         }
