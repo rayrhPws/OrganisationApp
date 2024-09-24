@@ -37,6 +37,7 @@ class secondApproachTestVC: UIViewController, WKNavigationDelegate {
         
         tblView.register(secondApproachTestVCTableViewCell.nib(), forCellReuseIdentifier: secondApproachTestVCTableViewCell.identifier)
         tblView.register(SeparatorTblCell.nib(), forCellReuseIdentifier: SeparatorTblCell.identifier)
+        tblView.register(DynamicHeightCell.nib(), forCellReuseIdentifier: DynamicHeightCell.identifier)
         
         self.getDetailFromServer()
     }
@@ -67,7 +68,7 @@ class secondApproachTestVC: UIViewController, WKNavigationDelegate {
                         }
                     }
                     
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.formular.rawValue, htmlStr: "", nestedArray: expandedModelArr))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.formular.rawValue,  htmlStr: "", nestedArray: expandedModelArr, hasNestedArray: true))
                 }
                 
                 if response.singleItem?.prozesse != nil && response.singleItem?.prozesse?.count ?? 0 > 0{
@@ -78,7 +79,7 @@ class secondApproachTestVC: UIViewController, WKNavigationDelegate {
                         }
                     }
                     
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.process.rawValue, htmlStr: "", nestedArray: expandedModelArr))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.process.rawValue, htmlStr: "", nestedArray: expandedModelArr, hasNestedArray: true))
                     
                 }
                 
@@ -160,7 +161,18 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
         if item.title.elementsEqual(TitleConfig.separtor.rawValue){
             let headerCell = tableView.dequeueReusableCell(withIdentifier: SeparatorTblCell.identifier) as! SeparatorTblCell
             return headerCell
-        }else{
+        }else if item.hasNestedArray{
+            let cell = tableView.dequeueReusableCell(withIdentifier: DynamicHeightCell.identifier) as! DynamicHeightCell
+            if let nestedArr = item.nestedArray{
+                if nestedArr.count > 0{
+                    cell.lblTitle.text = nestedArr[0].title
+                }else{
+                    cell.lblTitle.text = "sample title"
+                }
+            }
+            
+            return cell
+        } else{
             let cell = tableView.dequeueReusableCell(withIdentifier: secondApproachTestVCTableViewCell.identifier) as! secondApproachTestVCTableViewCell
          
             cell.lbl1.text = item.title
@@ -216,11 +228,22 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        detailArray[indexPath.row].isLoaded.toggle()
-        detailArray[indexPath.row].isExpanded.toggle()
-        print("index path is \(indexPath.row) and its expanded is \(detailArray[indexPath.row].isExpanded)")
+        let item = self.detailArray[indexPath.row]
+        
+        
+        if item.title.elementsEqual(TitleConfig.separtor.rawValue){
+            print("do nohing")
+        }else if item.hasNestedArray{
+//            move to next scren
+        } else{
+            detailArray[indexPath.row].isLoaded.toggle()
+            detailArray[indexPath.row].isExpanded.toggle()
+            print("index path is \(indexPath.row) and its expanded is \(detailArray[indexPath.row].isExpanded)")
 
-        self.tblView.reloadRows(at: [indexPath], with: .automatic)
+            self.tblView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        
+        
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

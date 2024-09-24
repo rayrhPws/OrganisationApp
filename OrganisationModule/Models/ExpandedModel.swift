@@ -10,9 +10,11 @@ struct ExpandedModel {
     var title: String
     var htmlStr: String
     var height : CGFloat = 0
+    
     var nestedArray: [ExpandedModel]?
     var isExpanded: Bool = false
     var isLoaded:Bool = false
+    var hasNestedArray: Bool = false
     
 }
 

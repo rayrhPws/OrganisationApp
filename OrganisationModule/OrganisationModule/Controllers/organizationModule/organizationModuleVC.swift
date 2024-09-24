@@ -39,6 +39,7 @@ class organizationModuleVC: UIViewController, WKNavigationDelegate {
                 if response.singleItem?.preamble != nil{
                     self.detailArray.append(ExpandedModel(title: response.singleItem?.bezeichnung ?? "", htmlStr: response.singleItem?.preamble ?? ""))
                 }
+                
                 if response.singleItem?.formulare != nil && response.singleItem?.formulare?.count ?? 0 > 0{
                     var expandedModelArr = [ExpandedModel]()
                     if let formularArr = response.singleItem?.formulare{
