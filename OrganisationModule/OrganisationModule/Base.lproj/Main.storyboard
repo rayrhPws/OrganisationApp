@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hYC-Sn-2gL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hYC-Sn-2gL">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,10 +34,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFe-BB-nJ2" customClass="IntrinsicallySizedTableView" customModule="OrganisationModule" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="59" width="393" height="659"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="XG0-cp-y4b" id="H4l-ma-k3A"/>
-                                    <outlet property="delegate" destination="XG0-cp-y4b" id="PxW-5l-8fS"/>
-                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKa-bE-YRE">
                                 <rect key="frame" x="159" y="788" width="75" height="50"/>
@@ -62,11 +58,13 @@
                             <constraint firstItem="MFe-BB-nJ2" firstAttribute="trailing" secondItem="rAo-wm-3LA" secondAttribute="trailing" id="qJ2-cP-aGu"/>
                             <constraint firstItem="MFe-BB-nJ2" firstAttribute="leading" secondItem="rAo-wm-3LA" secondAttribute="leading" id="w40-0I-Ctn"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="MFe-BB-nJ2"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="GaZ-RN-nQk"/>
-                    <connections>
-                        <outlet property="tblView" destination="MFe-BB-nJ2" id="Szc-eT-0Gv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M52-Fq-fW4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -81,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwo-Uu-yvf">
-                                <rect key="frame" x="0.0" y="101.33333333333331" width="393" height="716.66666666666674"/>
+                                <rect key="frame" x="0.0" y="93.333333333333314" width="393" height="724.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="XG0-cp-y4b" id="Ra2-fN-UjO"/>
@@ -89,7 +87,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQE-xM-kCc">
-                                <rect key="frame" x="0.0" y="59" width="80" height="42.333333333333343"/>
+                                <rect key="frame" x="0.0" y="59" width="80" height="34.333333333333343"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="c4o-hA-agZ"/>
                                 </constraints>

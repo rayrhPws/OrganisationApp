@@ -38,6 +38,7 @@ class secondApproachTestVC: UIViewController, WKNavigationDelegate {
         tblView.register(secondApproachTestVCTableViewCell.nib(), forCellReuseIdentifier: secondApproachTestVCTableViewCell.identifier)
         tblView.register(SeparatorTblCell.nib(), forCellReuseIdentifier: SeparatorTblCell.identifier)
         tblView.register(DynamicHeightCell.nib(), forCellReuseIdentifier: DynamicHeightCell.identifier)
+        tblView.register(HeaderCell.nib(), forCellReuseIdentifier: HeaderCell.identifier)
         
         self.getDetailFromServer()
     }
@@ -58,77 +59,79 @@ class secondApproachTestVC: UIViewController, WKNavigationDelegate {
                 print(response.singleItem?.preamble as Any)
                 
                 if response.singleItem?.preamble != nil{
-                    self.detailArray.append(ExpandedModel(title: response.singleItem?.bezeichnung ?? "", htmlStr: response.singleItem?.preamble ?? ""))
+                    self.detailArray.append(ExpandedModel(title: response.singleItem?.bezeichnung ?? "", htmlStr: response.singleItem?.preamble ?? "", type: ExpandedModelType.webview))
                 }
+                
                 if response.singleItem?.formulare != nil && response.singleItem?.formulare?.count ?? 0 > 0{
                     var expandedModelArr = [ExpandedModel]()
                     if let formularArr = response.singleItem?.formulare{
                         for obj in formularArr{
-                            expandedModelArr.append(ExpandedModel(title: obj.bezeichnung ?? "", htmlStr: obj.url ?? ""))
+                            expandedModelArr.append(ExpandedModel(title: obj.bezeichnung ?? "", htmlStr: obj.url ?? "", type: ExpandedModelType.dynamicheight))
                         }
                     }
                     
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.formular.rawValue,  htmlStr: "", nestedArray: expandedModelArr, hasNestedArray: true))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.formular.rawValue, htmlStr: "", type: ExpandedModelType.title))
+                    self.detailArray.append(contentsOf: expandedModelArr)
+                    
                 }
                 
                 if response.singleItem?.prozesse != nil && response.singleItem?.prozesse?.count ?? 0 > 0{
                     var expandedModelArr = [ExpandedModel]()
                     if let formularArr = response.singleItem?.prozesse{
                         for obj in formularArr{
-                            expandedModelArr.append(ExpandedModel(title: obj.bezeichnung ?? "", htmlStr: obj.url ?? ""))
+                            expandedModelArr.append(ExpandedModel(title: obj.bezeichnung ?? "", htmlStr: obj.url ?? "", type: ExpandedModelType.dynamicheight))
                         }
                     }
                     
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.process.rawValue, htmlStr: "", nestedArray: expandedModelArr, hasNestedArray: true))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.process.rawValue, htmlStr: "", type: ExpandedModelType.title))
+                    self.detailArray.append(contentsOf: expandedModelArr)
                     
                 }
                 
                 self.addSeparatorIfNeeded()
                 
                 if response.singleItem?.voraussetzungen != nil{
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title1.rawValue, htmlStr: response.singleItem?.voraussetzungen ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title1.rawValue, htmlStr: response.singleItem?.voraussetzungen ?? "", type: ExpandedModelType.webview))
                 }
                 
                 if response.singleItem?.verfahrensablauf != nil{
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title2.rawValue, htmlStr: response.singleItem?.verfahrensablauf ?? ""))
-                   
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title2.rawValue, htmlStr: response.singleItem?.verfahrensablauf ?? "", type: ExpandedModelType.webview))
+                    
                 }
                 if response.singleItem?.fristen != nil{
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title3.rawValue, htmlStr: response.singleItem?.fristen ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title3.rawValue, htmlStr: response.singleItem?.fristen ?? "", type: ExpandedModelType.webview))
                     
                 }
                 if response.singleItem?.unterlagen != nil{
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title4.rawValue, htmlStr: response.singleItem?.unterlagen ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title4.rawValue, htmlStr: response.singleItem?.unterlagen ?? "", type: ExpandedModelType.webview))
                     
                 }
                 if response.singleItem?.kosten != nil{
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title5.rawValue, htmlStr: response.singleItem?.kosten ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title5.rawValue, htmlStr: response.singleItem?.kosten ?? "", type: ExpandedModelType.webview))
                 }
                 if response.singleItem?.sonstiges != nil{
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title6.rawValue, htmlStr: response.singleItem?.sonstiges ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title6.rawValue, htmlStr: response.singleItem?.sonstiges ?? "", type: ExpandedModelType.webview))
                 }
                 if response.singleItem?.rechtsgrundlage != nil{
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title7.rawValue, htmlStr: response.singleItem?.rechtsgrundlage ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title7.rawValue, htmlStr: response.singleItem?.rechtsgrundlage ?? "", type: ExpandedModelType.webview))
                 }
                 if response.singleItem?.bearbeitungsdauer != nil{
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title8.rawValue, htmlStr: response.singleItem?.bearbeitungsdauer ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title8.rawValue, htmlStr: response.singleItem?.bearbeitungsdauer ?? "", type: ExpandedModelType.webview))
                 }
                 if response.singleItem?.zustaendigkeit != nil{
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title9.rawValue, htmlStr: response.singleItem?.zustaendigkeit ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title9.rawValue, htmlStr: response.singleItem?.zustaendigkeit ?? "", type: ExpandedModelType.webview))
                 }
                 if response.singleItem?.vertiefende_informationen != nil{
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title10.rawValue, htmlStr: response.singleItem?.vertiefende_informationen ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title10.rawValue, htmlStr: response.singleItem?.vertiefende_informationen ?? "", type: ExpandedModelType.webview))
                 }
                 
                 if response.singleItem?.freigabevermerk != nil{
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title11.rawValue, htmlStr: response.singleItem?.freigabevermerk ?? ""))
+                    self.detailArray.append(ExpandedModel(title: TitleConfig.title11.rawValue, htmlStr: response.singleItem?.freigabevermerk ?? "", type: ExpandedModelType.webview))
                 }
                 
-                
-                
-                
+
                 self.tblView.reloadData()
-                self.tblView.layoutIfNeeded()
+//                self.tblView.layoutIfNeeded()
             }
         } failure: { error in
             print(error?.localizedDescription as Any)
@@ -139,7 +142,7 @@ class secondApproachTestVC: UIViewController, WKNavigationDelegate {
     func addSeparatorIfNeeded(){
         let contains = self.detailArray.contains { $0.htmlStr == "" }
         if contains{
-            self.detailArray.append(ExpandedModel(title: TitleConfig.separtor.rawValue, htmlStr: ""))
+            self.detailArray.append(ExpandedModel(title: TitleConfig.separtor.rawValue, htmlStr: "", type: ExpandedModelType.separator))
         }
     }
     
@@ -156,23 +159,16 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let item = self.detailArray[indexPath.row]
-        
-        
-        if item.title.elementsEqual(TitleConfig.separtor.rawValue){
-            let headerCell = tableView.dequeueReusableCell(withIdentifier: SeparatorTblCell.identifier) as! SeparatorTblCell
-            return headerCell
-        }else if item.hasNestedArray{
+        switch item.type {
+        case .dynamicheight:
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicHeightCell.identifier) as! DynamicHeightCell
-            if let nestedArr = item.nestedArray{
-                if nestedArr.count > 0{
-                    cell.lblTitle.text = nestedArr[0].title
-                }else{
-                    cell.lblTitle.text = "sample title"
-                }
-            }
-            
+            cell.lblTitle.text = item.title
             return cell
-        } else{
+        case .title:
+            let cell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier) as! HeaderCell
+            cell.lblTitle.text = item.title
+            return cell
+        case .webview:
             let cell = tableView.dequeueReusableCell(withIdentifier: secondApproachTestVCTableViewCell.identifier) as! secondApproachTestVCTableViewCell
          
             cell.lbl1.text = item.title
@@ -211,12 +207,14 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
             
             
             return cell
+        case .separator:
+            let headerCell = tableView.dequeueReusableCell(withIdentifier: SeparatorTblCell.identifier) as! SeparatorTblCell
+            return headerCell
+        default:
+            return UITableViewCell()
         }
         
 
-        
-        
-        
         
     }
     
@@ -229,19 +227,21 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let item = self.detailArray[indexPath.row]
-        
-        
-        if item.title.elementsEqual(TitleConfig.separtor.rawValue){
-            print("do nohing")
-        }else if item.hasNestedArray{
-//            move to next scren
-        } else{
+        switch item.type {
+        case .dynamicheight:
+            print("do nothing")
+        case .title:
+            print("do nothing")
+        case .webview:
             detailArray[indexPath.row].isLoaded.toggle()
             detailArray[indexPath.row].isExpanded.toggle()
             print("index path is \(indexPath.row) and its expanded is \(detailArray[indexPath.row].isExpanded)")
-
             self.tblView.reloadRows(at: [indexPath], with: .automatic)
+        default:
+            print("do nothing")
         }
+        
+
         
         
     }
@@ -326,3 +326,7 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
     
     
 }
+
+
+
+
