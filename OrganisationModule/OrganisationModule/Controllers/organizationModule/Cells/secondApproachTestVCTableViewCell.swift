@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 class secondApproachTestVCTableViewCell: UITableViewCell {
     @IBOutlet weak var lbl1: UILabel!
-    @IBOutlet weak var lbl2: UILabel!
+    @IBOutlet weak var imgArrow: UIImageView!
     @IBOutlet weak var webkitHeight: NSLayoutConstraint!
     var identifier = "secondApproachTestVCTableViewCell"
     @IBOutlet weak var viewWK: WKWebView!

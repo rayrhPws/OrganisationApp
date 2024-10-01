@@ -172,7 +172,7 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
             let cell = tableView.dequeueReusableCell(withIdentifier: secondApproachTestVCTableViewCell.identifier) as! secondApproachTestVCTableViewCell
          
             cell.lbl1.text = item.title
-            cell.lbl2.text = "end"
+            
             
             cell.selectionStyle = .none
             cell.viewWK.scrollView.isScrollEnabled = false
@@ -183,18 +183,19 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
             let headString = Constants.shared.constHeaderStringForWebView
             
             
-            
             if item.htmlStr != "" {
                 // Set tag to identify which row's webView is loading
                 cell.viewWK.tag = indexPath.row
                 
                 if item.isExpanded{
+                    cell.imgArrow.image = UIImage(named: "up")
                     cell.viewWK.loadHTMLString(headString + item.htmlStr, baseURL: nil)
                     if item.isLoaded{
                         cell.webkitHeight.constant = item.height
                     }
                     
                 }else{
+                    cell.imgArrow.image = UIImage(named: "down")
                     cell.webkitHeight.constant = 0
                     cell.viewWK.loadHTMLString("", baseURL: nil)
                 }
