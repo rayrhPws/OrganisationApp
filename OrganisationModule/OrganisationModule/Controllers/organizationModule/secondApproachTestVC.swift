@@ -197,11 +197,11 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
                 }else{
                     cell.imgArrow.image = UIImage(named: "down")
                     cell.webkitHeight.constant = 0
-                    cell.viewWK.loadHTMLString("", baseURL: nil)
+//                    cell.viewWK.loadHTMLString("", baseURL: nil)
                 }
                 
             } else {
-                cell.viewWK.loadHTMLString("", baseURL: nil)
+//                cell.viewWK.loadHTMLString("", baseURL: nil)
                 cell.webkitHeight.constant = 0
             }
             
@@ -234,10 +234,33 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
         case .title:
             print("do nothing")
         case .webview:
-            detailArray[indexPath.row].isLoaded.toggle()
             detailArray[indexPath.row].isExpanded.toggle()
-            print("index path is \(indexPath.row) and its expanded is \(detailArray[indexPath.row].isExpanded)")
-            self.tblView.reloadRows(at: [indexPath], with: .automatic)
+            if self.detailArray[indexPath.row].isLoaded{
+                let cell = tableView.cellForRow(at: indexPath) as! secondApproachTestVCTableViewCell
+                UIView.performWithoutAnimation {
+                    tableView.beginUpdates()
+                    if self.detailArray[indexPath.row].isExpanded {
+                        cell.webkitHeight.constant = self.detailArray[indexPath.row].height
+                        cell.imgArrow.image = UIImage(named: "up")
+                    } else {
+                        cell.webkitHeight.constant = 0
+                        cell.imgArrow.image = UIImage(named: "down")
+                    }
+                    tableView.endUpdates()
+                }
+            }else{
+                UIView.performWithoutAnimation {
+                    print("index path is \(indexPath.row) and its expanded is \(detailArray[indexPath.row].isExpanded)")
+                    self.tblView.reloadRows(at: [indexPath], with: .automatic)
+                }
+                
+            }
+            
+            
+            
+           
+            
+            
         default:
             print("do nothing")
         }
@@ -275,13 +298,13 @@ extension secondApproachTestVC:UITableViewDataSource, UITableViewDelegate{
                         cell.webkitHeight.constant = height
                         self.detailArray[row].isLoaded = true
                         self.detailArray[row].height = height
-                        cell.layoutIfNeeded() // Ensure immediate application of height change
-                        
-                        // Animate the table view's layout update
-                        UIView.animate(withDuration: 0.3) {
-                            self.tblView.beginUpdates()
-                            self.tblView.endUpdates()
-                        }
+//                        cell.layoutIfNeeded() // Ensure immediate application of height change
+//                        
+//                        // Animate the table view's layout update
+//                        UIView.animate(withDuration: 0.3) {
+//                            self.tblView.beginUpdates()
+//                            self.tblView.endUpdates()
+//                        }
                     }
                     
                     
