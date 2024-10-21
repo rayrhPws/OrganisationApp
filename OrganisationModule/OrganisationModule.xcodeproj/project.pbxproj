@@ -21,6 +21,16 @@
 		802824CC2BBC67AC00CECC1C /* DynamicHeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802824CA2BBC67AC00CECC1C /* DynamicHeightCell.xib */; };
 		802824CF2BBC6E4200CECC1C /* SeparatorTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802824CD2BBC6E4200CECC1C /* SeparatorTblCell.swift */; };
 		802824D02BBC6E4200CECC1C /* SeparatorTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802824CE2BBC6E4200CECC1C /* SeparatorTblCell.xib */; };
+		80849ED72CC6B8DF00704B0A /* WebViewCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80849ED62CC6B8DF00704B0A /* WebViewCollCell.xib */; };
+		80849ED82CC6B8DF00704B0A /* WebViewCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80849ED52CC6B8DF00704B0A /* WebViewCollCell.swift */; };
+		80849EDB2CC6B8F400704B0A /* HeaderCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80849EDA2CC6B8F400704B0A /* HeaderCollCell.xib */; };
+		80849EDC2CC6B8F400704B0A /* HeaderCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80849ED92CC6B8F400704B0A /* HeaderCollCell.swift */; };
+		80849EE12CC6B91900704B0A /* SeparatorCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80849EE02CC6B91900704B0A /* SeparatorCollCell.xib */; };
+		80849EE22CC6B91900704B0A /* SeparatorCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80849EDF2CC6B91900704B0A /* SeparatorCollCell.swift */; };
+		80849EE52CC6B93200704B0A /* secondApproachTestVCCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80849EE42CC6B93200704B0A /* secondApproachTestVCCollCell.xib */; };
+		80849EE62CC6B93200704B0A /* secondApproachTestVCCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80849EE32CC6B93200704B0A /* secondApproachTestVCCollCell.swift */; };
+		80849EE92CC6BA4300704B0A /* DynamicHeightCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80849EE82CC6BA4300704B0A /* DynamicHeightCollCell.xib */; };
+		80849EEA2CC6BA4300704B0A /* DynamicHeightCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80849EE72CC6BA4300704B0A /* DynamicHeightCollCell.swift */; };
 		80A0FBC92BB5734C00A41CE1 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A0FBC72BB5734C00A41CE1 /* HeaderCell.swift */; };
 		80A0FBCA2BB5734C00A41CE1 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A0FBC82BB5734C00A41CE1 /* HeaderCell.xib */; };
 		80A66ED32BAB68E700CFA51E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A66ED22BAB68E700CFA51E /* NetworkManager.swift */; };
@@ -87,6 +97,16 @@
 		802824CA2BBC67AC00CECC1C /* DynamicHeightCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DynamicHeightCell.xib; sourceTree = "<group>"; };
 		802824CD2BBC6E4200CECC1C /* SeparatorTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorTblCell.swift; sourceTree = "<group>"; };
 		802824CE2BBC6E4200CECC1C /* SeparatorTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorTblCell.xib; sourceTree = "<group>"; };
+		80849ED52CC6B8DF00704B0A /* WebViewCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewCollCell.swift; sourceTree = "<group>"; };
+		80849ED62CC6B8DF00704B0A /* WebViewCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewCollCell.xib; sourceTree = "<group>"; };
+		80849ED92CC6B8F400704B0A /* HeaderCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollCell.swift; sourceTree = "<group>"; };
+		80849EDA2CC6B8F400704B0A /* HeaderCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollCell.xib; sourceTree = "<group>"; };
+		80849EDF2CC6B91900704B0A /* SeparatorCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorCollCell.swift; sourceTree = "<group>"; };
+		80849EE02CC6B91900704B0A /* SeparatorCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorCollCell.xib; sourceTree = "<group>"; };
+		80849EE32CC6B93200704B0A /* secondApproachTestVCCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondApproachTestVCCollCell.swift; sourceTree = "<group>"; };
+		80849EE42CC6B93200704B0A /* secondApproachTestVCCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = secondApproachTestVCCollCell.xib; sourceTree = "<group>"; };
+		80849EE72CC6BA4300704B0A /* DynamicHeightCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollCell.swift; sourceTree = "<group>"; };
+		80849EE82CC6BA4300704B0A /* DynamicHeightCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DynamicHeightCollCell.xib; sourceTree = "<group>"; };
 		80A0FBC72BB5734C00A41CE1 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		80A0FBC82BB5734C00A41CE1 /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		80A66ED22BAB68E700CFA51E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -307,6 +327,16 @@
 				802824CE2BBC6E4200CECC1C /* SeparatorTblCell.xib */,
 				80C1D5B22C9BBB230060A451 /* secondApproachTestVCTableViewCell.swift */,
 				80C1D5B32C9BBB230060A451 /* secondApproachTestVCTableViewCell.xib */,
+				80849ED52CC6B8DF00704B0A /* WebViewCollCell.swift */,
+				80849ED62CC6B8DF00704B0A /* WebViewCollCell.xib */,
+				80849ED92CC6B8F400704B0A /* HeaderCollCell.swift */,
+				80849EDA2CC6B8F400704B0A /* HeaderCollCell.xib */,
+				80849EDF2CC6B91900704B0A /* SeparatorCollCell.swift */,
+				80849EE02CC6B91900704B0A /* SeparatorCollCell.xib */,
+				80849EE32CC6B93200704B0A /* secondApproachTestVCCollCell.swift */,
+				80849EE42CC6B93200704B0A /* secondApproachTestVCCollCell.xib */,
+				80849EE72CC6BA4300704B0A /* DynamicHeightCollCell.swift */,
+				80849EE82CC6BA4300704B0A /* DynamicHeightCollCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -380,15 +410,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80849EDB2CC6B8F400704B0A /* HeaderCollCell.xib in Resources */,
 				802824CC2BBC67AC00CECC1C /* DynamicHeightCell.xib in Resources */,
 				801BB6342BA89D6F005226B4 /* LaunchScreen.storyboard in Resources */,
 				802824D02BBC6E4200CECC1C /* SeparatorTblCell.xib in Resources */,
 				801BB6312BA89D6F005226B4 /* Assets.xcassets in Resources */,
+				80849EE12CC6B91900704B0A /* SeparatorCollCell.xib in Resources */,
+				80849ED72CC6B8DF00704B0A /* WebViewCollCell.xib in Resources */,
+				80849EE92CC6BA4300704B0A /* DynamicHeightCollCell.xib in Resources */,
 				80C1D5B52C9BBB230060A451 /* secondApproachTestVCTableViewCell.xib in Resources */,
 				801BB62C2BA89D6E005226B4 /* Main.storyboard in Resources */,
 				801BB6412BA89FCA005226B4 /* localJson.json in Resources */,
 				80D6DAD52BA8C2D300FC85DF /* MessagePopup.xib in Resources */,
 				80D6DAD92BA8C2D300FC85DF /* AlertPopupWithTwoButtons.xib in Resources */,
+				80849EE52CC6B93200704B0A /* secondApproachTestVCCollCell.xib in Resources */,
 				80E67CC72BACA5A200B5BC9D /* WebViewTblCell.xib in Resources */,
 				80A0FBCA2BB5734C00A41CE1 /* HeaderCell.xib in Resources */,
 				80D6DAD72BA8C2D300FC85DF /* AlertPopup.xib in Resources */,
@@ -448,9 +483,11 @@
 				801BB6292BA89D6E005226B4 /* ViewController.swift in Sources */,
 				80D6DAE92BA8C2D300FC85DF /* intrincicCollectionView.swift in Sources */,
 				80D6DAEB2BA8C2D300FC85DF /* AVUtilities.swift in Sources */,
+				80849EDC2CC6B8F400704B0A /* HeaderCollCell.swift in Sources */,
 				801BB6252BA89D6E005226B4 /* AppDelegate.swift in Sources */,
 				80D6DB4D2BA8C2D300FC85DF /* Color.swift in Sources */,
 				80D6DAC62BA8C2D300FC85DF /* Double+Extension.swift in Sources */,
+				80849EEA2CC6BA4300704B0A /* DynamicHeightCollCell.swift in Sources */,
 				80D6DAE62BA8C2D300FC85DF /* MLKitExtensions.swift in Sources */,
 				80D6DAC52BA8C2D300FC85DF /* Date+Extension.swift in Sources */,
 				80D6DAC32BA8C2D300FC85DF /* UIView.swift in Sources */,
@@ -458,6 +495,7 @@
 				801BB6272BA89D6E005226B4 /* SceneDelegate.swift in Sources */,
 				80D6DACD2BA8C2D300FC85DF /* Data+Extension.swift in Sources */,
 				80D6DB532BA8DC3900FC85DF /* jsonModel.swift in Sources */,
+				80849EE62CC6B93200704B0A /* secondApproachTestVCCollCell.swift in Sources */,
 				80E4E3E12BB9E273007A5E3D /* ExpandedModel.swift in Sources */,
 				80D6DAD62BA8C2D300FC85DF /* AlertPopup.swift in Sources */,
 				801BB62F2BA89D6E005226B4 /* OrganisationModule.xcdatamodeld in Sources */,
@@ -465,6 +503,7 @@
 				80D6DAEC2BA8C2D300FC85DF /* AttachmentHandler.swift in Sources */,
 				80C1D5B42C9BBB230060A451 /* secondApproachTestVCTableViewCell.swift in Sources */,
 				80A66ED32BAB68E700CFA51E /* NetworkManager.swift in Sources */,
+				80849ED82CC6B8DF00704B0A /* WebViewCollCell.swift in Sources */,
 				80D6DADA2BA8C2D300FC85DF /* AlertPopupWithTwoButtons.swift in Sources */,
 				80D6DABF2BA8C2D300FC85DF /* Constants.swift in Sources */,
 				80D6DACA2BA8C2D300FC85DF /* storyboarded.swift in Sources */,
@@ -491,6 +530,7 @@
 				80A66ED72BAB6CBD00CFA51E /* EmptyModel.swift in Sources */,
 				80D6DAE52BA8C2D300FC85DF /* Storyboard.swift in Sources */,
 				80D6DAC22BA8C2D300FC85DF /* UIApplication+Extension.swift in Sources */,
+				80849EE22CC6B91900704B0A /* SeparatorCollCell.swift in Sources */,
 				801BB63F2BA89E50005226B4 /* organizationModuleVC.swift in Sources */,
 				80D6DAE42BA8C2D300FC85DF /* Reachability.swift in Sources */,
 			);
