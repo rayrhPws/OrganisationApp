@@ -8,6 +8,7 @@
 import UIKit
 
 class DynamicHeightCollCell: UICollectionViewCell {
+    
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var imgArrow: UIImageView!
     override func awakeFromNib() {
