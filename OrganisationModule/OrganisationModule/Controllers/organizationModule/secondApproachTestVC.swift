@@ -15,6 +15,10 @@ class secondApproachTestVC: UIViewController {
     let network = NetworkManager()
     var detailArray = [ExpandedModel]()
     
+    // MARK: - Configuration
+    /// Set this to `true` to expand all cells by default, or `false` to keep them collapsed.
+    let ExpandAllByDefault = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,17 +43,28 @@ class secondApproachTestVC: UIViewController {
     func getDetailFromServer() {
         network.request("",
                         encoding: JSONEncoding.default,
-                        modelType: JsonModel.self) { result in
+                        modelType: JsonModel.self) { [weak self] result in
+            guard let self = self else { return }
             if let response = result as? JsonModel {
                 print(response.singleItem?.preamble as Any)
                 
                 if response.singleItem?.preamble != nil {
-                    self.detailArray.append(ExpandedModel(title: response.singleItem?.bezeichnung ?? "", htmlStr: response.singleItem?.preamble ?? "", type: .webview))
+                    var model = ExpandedModel(title: response.singleItem?.bezeichnung ?? "", htmlStr: response.singleItem?.preamble ?? "", type: .webview)
+                    if self.ExpandAllByDefault {
+                        model.isExpanded = true
+                        model.isLoaded = true
+                    }
+                    self.detailArray.append(model)
                 }
                 if let formularArr = response.singleItem?.formulare, !formularArr.isEmpty {
                     var expandedModelArr = [ExpandedModel]()
                     for obj in formularArr {
-                        expandedModelArr.append(ExpandedModel(title: obj.bezeichnung ?? "", htmlStr: obj.url ?? "", type: .dynamicheight))
+                        var model = ExpandedModel(title: obj.bezeichnung ?? "", htmlStr: obj.url ?? "", type: .dynamicheight)
+                        if self.ExpandAllByDefault {
+                            model.isExpanded = true
+                            model.isLoaded = true
+                        }
+                        expandedModelArr.append(model)
                     }
                     self.detailArray.append(ExpandedModel(title: TitleConfig.formular.rawValue, htmlStr: "", type: .title))
                     self.detailArray.append(contentsOf: expandedModelArr)
@@ -58,7 +73,12 @@ class secondApproachTestVC: UIViewController {
                 if let processArr = response.singleItem?.prozesse, !processArr.isEmpty {
                     var expandedModelArr = [ExpandedModel]()
                     for obj in processArr {
-                        expandedModelArr.append(ExpandedModel(title: obj.bezeichnung ?? "", htmlStr: obj.url ?? "", type: .dynamicheight))
+                        var model = ExpandedModel(title: obj.bezeichnung ?? "", htmlStr: obj.url ?? "", type: .dynamicheight)
+                        if self.ExpandAllByDefault {
+                            model.isExpanded = true
+                            model.isLoaded = true
+                        }
+                        expandedModelArr.append(model)
                     }
                     self.detailArray.append(ExpandedModel(title: TitleConfig.process.rawValue, htmlStr: "", type: .title))
                     self.detailArray.append(contentsOf: expandedModelArr)
@@ -67,37 +87,92 @@ class secondApproachTestVC: UIViewController {
                 self.addSeparatorIfNeeded()
                 
                 if response.singleItem?.voraussetzungen != nil {
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title1.rawValue, htmlStr: response.singleItem?.voraussetzungen ?? "", type: .webview))
+                    var model = ExpandedModel(title: TitleConfig.title1.rawValue, htmlStr: response.singleItem?.voraussetzungen ?? "", type: .webview)
+                    if self.ExpandAllByDefault {
+                        model.isExpanded = true
+                        model.isLoaded = true
+                    }
+                    self.detailArray.append(model)
                 }
                 if response.singleItem?.verfahrensablauf != nil {
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title2.rawValue, htmlStr: response.singleItem?.verfahrensablauf ?? "", type: .webview))
+                    var model = ExpandedModel(title: TitleConfig.title2.rawValue, htmlStr: response.singleItem?.verfahrensablauf ?? "", type: .webview)
+                    if self.ExpandAllByDefault {
+                        model.isExpanded = true
+                        model.isLoaded = true
+                    }
+                    self.detailArray.append(model)
                 }
                 if response.singleItem?.fristen != nil {
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title3.rawValue, htmlStr: response.singleItem?.fristen ?? "", type: .webview))
+                    var model = ExpandedModel(title: TitleConfig.title3.rawValue, htmlStr: response.singleItem?.fristen ?? "", type: .webview)
+                    if self.ExpandAllByDefault {
+                        model.isExpanded = true
+                        model.isLoaded = true
+                    }
+                    self.detailArray.append(model)
                 }
                 if response.singleItem?.unterlagen != nil {
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title4.rawValue, htmlStr: response.singleItem?.unterlagen ?? "", type: .webview))
+                    var model = ExpandedModel(title: TitleConfig.title4.rawValue, htmlStr: response.singleItem?.unterlagen ?? "", type: .webview)
+                    if self.ExpandAllByDefault {
+                        model.isExpanded = true
+                        model.isLoaded = true
+                    }
+                    self.detailArray.append(model)
                 }
                 if response.singleItem?.kosten != nil {
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title5.rawValue, htmlStr: response.singleItem?.kosten ?? "", type: .webview))
+                    var model = ExpandedModel(title: TitleConfig.title5.rawValue, htmlStr: response.singleItem?.kosten ?? "", type: .webview)
+                    if self.ExpandAllByDefault {
+                        model.isExpanded = true
+                        model.isLoaded = true
+                    }
+                    self.detailArray.append(model)
                 }
                 if response.singleItem?.sonstiges != nil {
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title6.rawValue, htmlStr: response.singleItem?.sonstiges ?? "", type: .webview))
+                    var model = ExpandedModel(title: TitleConfig.title6.rawValue, htmlStr: response.singleItem?.sonstiges ?? "", type: .webview)
+                    if self.ExpandAllByDefault {
+                        model.isExpanded = true
+                        model.isLoaded = true
+                    }
+                    self.detailArray.append(model)
                 }
                 if response.singleItem?.rechtsgrundlage != nil {
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title7.rawValue, htmlStr: response.singleItem?.rechtsgrundlage ?? "", type: .webview))
+                    var model = ExpandedModel(title: TitleConfig.title7.rawValue, htmlStr: response.singleItem?.rechtsgrundlage ?? "", type: .webview)
+                    if self.ExpandAllByDefault {
+                        model.isExpanded = true
+                        model.isLoaded = true
+                    }
+                    self.detailArray.append(model)
                 }
                 if response.singleItem?.bearbeitungsdauer != nil {
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title8.rawValue, htmlStr: response.singleItem?.bearbeitungsdauer ?? "", type: .webview))
+                    var model = ExpandedModel(title: TitleConfig.title8.rawValue, htmlStr: response.singleItem?.bearbeitungsdauer ?? "", type: .webview)
+                    if self.ExpandAllByDefault {
+                        model.isExpanded = true
+                        model.isLoaded = true
+                    }
+                    self.detailArray.append(model)
                 }
                 if response.singleItem?.zustaendigkeit != nil {
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title9.rawValue, htmlStr: response.singleItem?.zustaendigkeit ?? "", type: .webview))
+                    var model = ExpandedModel(title: TitleConfig.title9.rawValue, htmlStr: response.singleItem?.zustaendigkeit ?? "", type: .webview)
+                    if self.ExpandAllByDefault {
+                        model.isExpanded = true
+                        model.isLoaded = true
+                    }
+                    self.detailArray.append(model)
                 }
                 if response.singleItem?.vertiefende_informationen != nil {
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title10.rawValue, htmlStr: response.singleItem?.vertiefende_informationen ?? "", type: .webview))
+                    var model = ExpandedModel(title: TitleConfig.title10.rawValue, htmlStr: response.singleItem?.vertiefende_informationen ?? "", type: .webview)
+                    if self.ExpandAllByDefault {
+                        model.isExpanded = true
+                        model.isLoaded = true
+                    }
+                    self.detailArray.append(model)
                 }
                 if response.singleItem?.freigabevermerk != nil {
-                    self.detailArray.append(ExpandedModel(title: TitleConfig.title11.rawValue, htmlStr: response.singleItem?.freigabevermerk ?? "", type: .webview))
+                    var model = ExpandedModel(title: TitleConfig.title11.rawValue, htmlStr: response.singleItem?.freigabevermerk ?? "", type: .webview)
+                    if self.ExpandAllByDefault {
+                        model.isExpanded = true
+                        model.isLoaded = true
+                    }
+                    self.detailArray.append(model)
                 }
                 
                 self.collectionView.reloadData()
@@ -146,7 +221,7 @@ extension secondApproachTestVC: UICollectionViewDataSource, UICollectionViewDele
             cell.lblTitle.text = item.title
             return cell
         case .title:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeaderCollCell", for: indexPath) as! HeaderCollCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderCollCell.identifier, for: indexPath) as! HeaderCollCell
             cell.lblTitle.text = item.title
             return cell
         case .webview:
@@ -164,7 +239,7 @@ extension secondApproachTestVC: UICollectionViewDataSource, UICollectionViewDele
 // MARK: - SecondApproachTestVCCollCellDelegate
 
 extension secondApproachTestVC: SecondApproachTestVCCollCellDelegate {
-    func webViewDidFinishLoading(_ cell: secondApproachTestVCCollCell,height: CGFloat) {
+    func webViewDidFinishLoading(_ cell: secondApproachTestVCCollCell, height: CGFloat) {
         if let indexPath = collectionView.indexPath(for: cell) {
             var item = detailArray[indexPath.row]
             item.height = height
@@ -179,7 +254,11 @@ extension secondApproachTestVC: SecondApproachTestVCCollCellDelegate {
             var item = detailArray[indexPath.row]
             item.isExpanded = !item.isExpanded
             detailArray[indexPath.row] = item
-            collectionView.reloadItems(at: [indexPath])
+            
+            // Reload the specific cell without animation to prevent blinking
+            UIView.performWithoutAnimation {
+                collectionView.reloadItems(at: [indexPath])
+            }
         }
     }
 }
