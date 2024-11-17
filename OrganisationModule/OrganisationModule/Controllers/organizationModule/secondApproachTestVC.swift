@@ -17,7 +17,7 @@ class secondApproachTestVC: UIViewController {
     
     // MARK: - Configuration
     /// Set this to `true` to expand all cells by default, or `false` to keep them collapsed.
-    let ExpandAllByDefault = true
+    let ExpandAllByDefault = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -240,26 +240,29 @@ extension secondApproachTestVC: UICollectionViewDataSource, UICollectionViewDele
 
 extension secondApproachTestVC: SecondApproachTestVCCollCellDelegate {
     func webViewDidFinishLoading(_ cell: secondApproachTestVCCollCell, height: CGFloat) {
-        if let indexPath = collectionView.indexPath(for: cell) {
-            var item = detailArray[indexPath.row]
-            item.height = height
-            item.isLoaded = true
-            detailArray[indexPath.row] = item
-            collectionView.performBatchUpdates(nil, completion: nil)
-        }
-    }
+           if let indexPath = collectionView.indexPath(for: cell) {
+               var item = detailArray[indexPath.row]
+               item.height = height
+               item.isLoaded = true
+               detailArray[indexPath.row] = item
+               UIView.performWithoutAnimation {
+                   collectionView.performBatchUpdates(nil, completion: nil)
+               }
+           }
+       }
     
     func didTapTitleLabel(_ cell: secondApproachTestVCCollCell) {
-        if let indexPath = collectionView.indexPath(for: cell) {
-            var item = detailArray[indexPath.row]
-            item.isExpanded = !item.isExpanded
-            detailArray[indexPath.row] = item
-            
-            // Reload the specific cell without animation to prevent blinking
-            UIView.performWithoutAnimation {
-                collectionView.reloadItems(at: [indexPath])
+            if let indexPath = collectionView.indexPath(for: cell) {
+                var item = detailArray[indexPath.row]
+                item.isExpanded = !item.isExpanded
+                detailArray[indexPath.row] = item
+
+                UIView.performWithoutAnimation {
+                    collectionView.performBatchUpdates({
+                        collectionView.reloadItems(at: [indexPath])
+                    }, completion: nil)
+                }
             }
         }
-    }
 }
 

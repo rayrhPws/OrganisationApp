@@ -49,16 +49,25 @@ class secondApproachTestVCCollCell: UICollectionViewCell, WKNavigationDelegate {
                 imgArrow.image = UIImage(named: "up")
                 viewWK.loadHTMLString(headString + item.htmlStr, baseURL: nil)
                 if item.isLoaded {
-                    webkitHeight.constant = item.height
+                    UIView.performWithoutAnimation {
+                        self.webkitHeight.constant = item.height
+                        self.layoutIfNeeded()
+                    }
                 }
             } else {
                 imgArrow.image = UIImage(named: "down")
-                webkitHeight.constant = 0
+                UIView.performWithoutAnimation {
+                    self.webkitHeight.constant = 0
+                    self.layoutIfNeeded()
+                }
                 viewWK.loadHTMLString("", baseURL: nil)
             }
         } else {
             viewWK.loadHTMLString("", baseURL: nil)
-            webkitHeight.constant = 0
+            UIView.performWithoutAnimation {
+                self.webkitHeight.constant = 0
+                self.layoutIfNeeded()
+            }
         }
     }
     
@@ -69,7 +78,10 @@ class secondApproachTestVCCollCell: UICollectionViewCell, WKNavigationDelegate {
             if complete != nil {
                 webView.evaluateJavaScript("document.body.scrollHeight") { [weak self] (height, error) in
                     if let self = self, let height = height as? CGFloat {
-                        self.webkitHeight.constant = height
+                        UIView.performWithoutAnimation {
+                            self.webkitHeight.constant = height
+                            self.layoutIfNeeded()
+                        }
                         self.delegate?.webViewDidFinishLoading(self, height: height)
                     }
                 }
@@ -77,4 +89,5 @@ class secondApproachTestVCCollCell: UICollectionViewCell, WKNavigationDelegate {
         }
     }
 }
+
 
