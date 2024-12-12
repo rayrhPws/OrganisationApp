@@ -14,6 +14,7 @@ struct ExpandedModel {
 //    var nestedArray: [ExpandedModel]?
     var isExpanded: Bool = false
     var isLoaded:Bool = false
+    var previousIsExpanded: Bool? 
 //    var hasNestedArray: Bool = false
     
 }
